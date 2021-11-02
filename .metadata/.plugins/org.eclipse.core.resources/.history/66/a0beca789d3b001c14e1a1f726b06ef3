@@ -1,0 +1,5 @@
+package com.yanolja.dao;
+
+public class UserDAO {
+
+}

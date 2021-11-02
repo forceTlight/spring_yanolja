@@ -1,0 +1,5 @@
+package com.yanolja.service;
+
+public interface UserService {
+
+}
