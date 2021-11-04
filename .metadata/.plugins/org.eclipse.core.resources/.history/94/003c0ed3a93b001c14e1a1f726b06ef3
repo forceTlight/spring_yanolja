@@ -1,7 +1,0 @@
-package com.yanolja.dao;
-
-import com.yanolja.dto.UserDTO;
-
-public interface UserDAO {
-	public UserDTO insertUser(UserDTO user) throws Exception;
-}
