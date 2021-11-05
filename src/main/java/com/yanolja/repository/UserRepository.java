@@ -51,6 +51,7 @@ private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 		SqlParameterSource parameterSource = new MapSqlParameterSource("userId", id);
 		return namedParameterJdbcTemplate.update(UserSql.DELETE, parameterSource);
 	}
+
 	// UserId를 사용해 User 찾기
 	public UserDTO findById(Integer id) {
 		SqlParameterSource parameterSource = new MapSqlParameterSource("userId", id);

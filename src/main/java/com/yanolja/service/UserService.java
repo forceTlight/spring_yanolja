@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 public class UserService implements UserServiceInterface{
 	@Autowired
 	private UserRepository userRepository;
-
 	public UserDTO insert(UserDTO user) {
 		return userRepository.insert(user);
 	}

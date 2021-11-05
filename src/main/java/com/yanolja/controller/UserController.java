@@ -16,7 +16,7 @@ public class UserController {
 	
 	@Autowired
 	UserService userService;
-	
+
 	@PostMapping(value="/register")
 	@ApiOperation(value = "유저등록", notes = "유저를 새로 등록함.")
 	public ResponseEntity<UserDTO> userCreate(@RequestBody UserDTO user){
@@ -40,7 +40,7 @@ public class UserController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	@PostMapping(value="/update")
+	@PutMapping(value="/update")
 	@ApiOperation(value = "유저수정", notes = "유저 레이블을 수정한다.")
 	public ResponseEntity<String> userUpdate(@RequestBody UserDTO user){
 		try {
@@ -52,7 +52,7 @@ public class UserController {
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	@GetMapping(value="/delete/{userId}")
+	@DeleteMapping(value="/delete/{userId}")
 	@ApiOperation(value = "유저삭제", notes = "userId를 받아서 유저를 삭제한다.")
 	public ResponseEntity<String> userDelete(@PathVariable Integer userId){
 		try {

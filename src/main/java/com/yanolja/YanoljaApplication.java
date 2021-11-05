@@ -7,9 +7,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
-/**
- * DB 초기화 하고싶을때 connectDB 쓰면 됨
- */
+/** DB 테이블 새로만들고 싶으면 createTable() 쓰면 됨
+ * @Author Neo
+ * @LastModified 21.11.05
+ * */
+
 @SpringBootApplication
 public class YanoljaApplication {
     final static String id = "neo";
@@ -18,10 +20,10 @@ public class YanoljaApplication {
     static Statement stmt = null;
     public static void main(String[] args) {
         SpringApplication.run(YanoljaApplication.class, args);
-        //connectDB();
+        createTable();
     }
-    // DB 연결
-    public static void connectDB(){
+    // DB 연결 및 모든 테이블 생성
+    public static void createTable(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://umc-neo-aws-study.cvv8ynus2ua9.ap-northeast-2.rds.amazonaws.com:3306/umc_yanolja?enabledTLSProtocols=TLSv1.2";
@@ -48,13 +50,15 @@ public class YanoljaApplication {
         stmt = conn.createStatement();
         StringBuilder sb = new StringBuilder();
         String sql = sb.append("create table user(")
-                .append("userId INTEGER not NULL,")
+                .append("userId INTEGER not NULL AUTO_INCREMENT,")
                 .append("name VARCHAR(10) not NULL,")
                 .append("profileImgUrl text,")
                 .append("email VARCHAR(30) not NULL,")
                 .append("password VARCHAR(20) not NULL,")
                 .append("phoneNumber VARCHAR(20) not NULL,")
                 .append("deleteYN varchar(1),")
+                .append("createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,")
+                .append("updateDate TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,")
                 .append("PRIMARY KEY(userId));")
                 .toString();
         stmt.execute(sql);
