@@ -4,6 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+/**
+ * @author Neo
+ * 2021.11.01
+ * 유저의 정보를 담고있는 DTO
+ */
 
 @Builder
 @AllArgsConstructor

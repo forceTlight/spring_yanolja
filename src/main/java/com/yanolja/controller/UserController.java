@@ -1,7 +1,7 @@
 package com.yanolja.controller;
 
 import com.yanolja.domain.UserDTO;
-import com.yanolja.service.UserService;
+import com.yanolja.service.UserServiceImpl;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 	
 	@Autowired
-	UserService userService;
+	UserServiceImpl userService;
 
 	@PostMapping(value="/register")
 	@ApiOperation(value = "유저등록", notes = "유저를 새로 등록함.")
