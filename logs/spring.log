@@ -1,355 +1,322 @@
-2021-11-05 08:44:31.292  INFO 11268 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 11268 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 08:44:31.297  INFO 11268 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 08:44:31.709  INFO 11268 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 08:44:31.710  INFO 11268 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 08:44:32.761  INFO 11268 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 08:44:32.778  INFO 11268 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
-2021-11-05 08:44:33.478  INFO 11268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 08:44:33.491  INFO 11268 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 08:44:33.492  INFO 11268 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 08:44:33.626  INFO 11268 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-05 08:44:33.626  INFO 11268 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1915 ms
-2021-11-05 08:44:34.202  INFO 11268 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 08:44:34.368  INFO 11268 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 08:44:34.534  WARN 11268 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 08:44:34.535  INFO 11268 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 08:44:35.085  INFO 11268 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 08:44:35.208  INFO 11268 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 08:44:35.210  INFO 11268 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 08:44:35.234  INFO 11268 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 08:44:35.266  INFO 11268 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 08:44:35.475  INFO 11268 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.66 seconds (JVM running for 7.014)
-2021-11-05 08:48:13.118  INFO 11268 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-05 08:48:13.118  INFO 11268 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-05 08:48:13.119  INFO 11268 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-05 08:48:13.137  WARN 11268 --- [http-nio-8080-exec-1] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-2021-11-05 08:48:55.110 ERROR 11268 --- [http-nio-8080-exec-4] com.yanolja.controller.UserController    : org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [
-			INSERT INTO user (name, profileImgUrl, email, password, phoneNumber, deleteYN)
-			values (?, ?, ?, ?, ?, ?)
-			]; Field 'userId' doesn't have a default value; nested exception is java.sql.SQLException: Field 'userId' doesn't have a default value
-2021-11-05 08:49:07.937 ERROR 11268 --- [http-nio-8080-exec-6] com.yanolja.controller.UserController    : org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [
-			INSERT INTO user (name, profileImgUrl, email, password, phoneNumber, deleteYN)
-			values (?, ?, ?, ?, ?, ?)
-			]; Field 'userId' doesn't have a default value; nested exception is java.sql.SQLException: Field 'userId' doesn't have a default value
-2021-11-05 08:50:29.250 ERROR 11268 --- [http-nio-8080-exec-10] com.yanolja.controller.UserController    : org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [
-			INSERT INTO user (name, profileImgUrl, email, password, phoneNumber, deleteYN)
-			values (?, ?, ?, ?, ?, ?)
-			]; Field 'userId' doesn't have a default value; nested exception is java.sql.SQLException: Field 'userId' doesn't have a default value
-2021-11-05 08:50:39.161  INFO 11268 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-05 08:50:39.170  INFO 11268 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-05 08:50:48.272  INFO 22224 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 22224 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 08:50:48.275  INFO 22224 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 08:50:48.572  INFO 22224 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 08:50:48.572  INFO 22224 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 08:50:49.635  INFO 22224 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 08:50:49.654  INFO 22224 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
-2021-11-05 08:50:50.397  INFO 22224 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 08:50:50.410  INFO 22224 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 08:50:50.411  INFO 22224 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 08:50:50.548  INFO 22224 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-05 08:50:50.549  INFO 22224 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1976 ms
-2021-11-05 08:50:51.205  INFO 22224 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 08:50:51.380  INFO 22224 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 08:50:51.553  WARN 22224 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 08:50:51.555  INFO 22224 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 08:50:52.022  INFO 22224 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 08:50:52.160  INFO 22224 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 08:50:52.162  INFO 22224 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 08:50:52.187  INFO 22224 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 08:50:52.224  INFO 22224 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 08:50:52.409  INFO 22224 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.63 seconds (JVM running for 7.679)
-2021-11-05 08:51:24.710  INFO 22224 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-05 08:51:24.710  INFO 22224 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-05 08:51:24.711  INFO 22224 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-05 08:52:08.849 ERROR 22224 --- [http-nio-8080-exec-2] com.yanolja.controller.UserController    : org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [
-			INSERT INTO user (name, profileImgUrl, email, password, phoneNumber, deleteYN)
-			values (?, ?, ?, ?, ?, ?)
-			]; Field 'userId' doesn't have a default value; nested exception is java.sql.SQLException: Field 'userId' doesn't have a default value
-2021-11-05 08:52:28.246 ERROR 22224 --- [http-nio-8080-exec-4] com.yanolja.controller.UserController    : org.springframework.dao.DataIntegrityViolationException: PreparedStatementCallback; SQL [
-			INSERT INTO user (name, profileImgUrl, email, password, phoneNumber, deleteYN)
-			values (?, ?, ?, ?, ?, ?)
-			]; Field 'userId' doesn't have a default value; nested exception is java.sql.SQLException: Field 'userId' doesn't have a default value
-2021-11-05 08:57:06.931  INFO 22224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-05 08:57:06.941  INFO 22224 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-05 08:57:17.260  INFO 24772 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 24772 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 08:57:17.263  INFO 24772 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 08:57:17.528  INFO 24772 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 08:57:17.528  INFO 24772 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 08:57:18.839  INFO 24772 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 08:57:18.855  INFO 24772 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 JDBC repository interfaces.
-2021-11-05 08:57:19.594  INFO 24772 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 08:57:19.611  INFO 24772 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 08:57:19.612  INFO 24772 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 08:57:19.909  INFO 24772 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-05 08:57:19.910  INFO 24772 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2381 ms
-2021-11-05 08:57:20.660  INFO 24772 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 08:57:20.814  INFO 24772 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 08:57:21.041  WARN 24772 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 08:57:21.042  INFO 24772 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 08:57:21.448  INFO 24772 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 08:57:21.570  INFO 24772 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 08:57:21.572  INFO 24772 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 08:57:21.592  INFO 24772 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 08:57:21.625  INFO 24772 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 08:57:21.802  INFO 24772 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 5.3 seconds (JVM running for 7.468)
-2021-11-05 08:57:49.657  INFO 24772 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-05 08:57:49.666  INFO 24772 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-05 08:57:55.299  INFO 23940 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 23940 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 08:57:55.301  INFO 23940 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 08:57:55.532  INFO 23940 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 08:57:55.533  INFO 23940 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 08:57:56.495  INFO 23940 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 08:57:56.510  INFO 23940 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces.
-2021-11-05 08:57:57.113  INFO 23940 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 08:57:57.124  INFO 23940 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 08:57:57.124  INFO 23940 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 08:57:57.264  INFO 23940 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-05 08:57:57.266  INFO 23940 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1733 ms
-2021-11-05 08:57:57.761  INFO 23940 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 08:57:57.907  INFO 23940 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 08:57:58.058  WARN 23940 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 08:57:58.067  INFO 23940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 08:57:58.453  INFO 23940 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 08:57:58.575  INFO 23940 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 08:57:58.577  INFO 23940 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 08:57:58.600  INFO 23940 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 08:57:58.629  INFO 23940 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 08:57:58.806  INFO 23940 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.088 seconds (JVM running for 6.025)
-2021-11-05 08:58:58.392  INFO 23940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-05 08:58:58.401  INFO 23940 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-05 08:59:07.901  INFO 14036 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 14036 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 08:59:07.903  INFO 14036 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 08:59:08.218  INFO 14036 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 08:59:08.219  INFO 14036 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 08:59:09.405  INFO 14036 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 08:59:09.426  INFO 14036 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JDBC repository interfaces.
-2021-11-05 08:59:10.138  INFO 14036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 08:59:10.148  INFO 14036 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 08:59:10.149  INFO 14036 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 08:59:10.284  INFO 14036 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-05 08:59:10.284  INFO 14036 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2064 ms
-2021-11-05 08:59:10.797  INFO 14036 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 08:59:10.955  INFO 14036 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 08:59:11.099  WARN 14036 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 08:59:11.100  INFO 14036 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 08:59:11.600  INFO 14036 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 08:59:11.759  INFO 14036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 08:59:11.763  INFO 14036 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 08:59:11.828  INFO 14036 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 08:59:11.874  INFO 14036 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 08:59:12.050  INFO 14036 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.776 seconds (JVM running for 6.671)
-2021-11-05 08:59:32.530  INFO 14036 --- [http-nio-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-05 08:59:32.530  INFO 14036 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-05 08:59:32.534  INFO 14036 --- [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-05 11:03:14.350  INFO 14036 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-05 11:03:14.358  INFO 14036 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-05 11:03:34.461  INFO 21968 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 21968 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 11:03:34.464  INFO 21968 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 11:03:34.765  INFO 21968 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 11:03:34.765  INFO 21968 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 11:03:35.942  INFO 21968 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 11:03:35.961  INFO 21968 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces.
-2021-11-05 11:03:36.773  INFO 21968 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 11:03:36.785  INFO 21968 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 11:03:36.786  INFO 21968 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 11:03:36.922  INFO 21968 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-05 11:03:36.922  INFO 21968 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2156 ms
-2021-11-05 11:03:37.524  INFO 21968 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 11:03:37.728  INFO 21968 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 11:03:37.954  WARN 21968 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 11:03:37.955  INFO 21968 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 11:03:38.572  INFO 21968 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 11:03:38.747  INFO 21968 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 11:03:38.749  INFO 21968 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 11:03:38.781  INFO 21968 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 11:03:38.827  INFO 21968 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 11:03:39.029  INFO 21968 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 5.139 seconds (JVM running for 14.795)
-2021-11-05 11:03:39.974  INFO 21968 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-05 11:03:39.982  INFO 21968 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-05 11:04:49.679  INFO 22168 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 22168 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 11:04:49.682  INFO 22168 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 11:04:49.955  INFO 22168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 11:04:49.956  INFO 22168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 11:04:51.145  INFO 22168 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 11:04:51.160  INFO 22168 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 10 ms. Found 0 JDBC repository interfaces.
-2021-11-05 11:04:51.862  INFO 22168 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 11:04:51.873  INFO 22168 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 11:04:51.873  INFO 22168 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 11:04:52.023  INFO 22168 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2066 ms
-2021-11-05 11:04:52.802  INFO 22168 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 11:04:53.091  INFO 22168 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 11:04:53.269  WARN 22168 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 11:04:53.271  INFO 22168 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 11:04:53.755  INFO 22168 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 11:04:53.921  INFO 22168 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 11:04:53.922  INFO 22168 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 11:04:53.943  INFO 22168 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 11:04:53.982  INFO 22168 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 11:04:54.174  INFO 22168 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 5.069 seconds (JVM running for 6.782)
-2021-11-05 11:04:54.316  INFO 22168 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-05 11:04:54.334  INFO 22168 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-05 11:19:11.310  INFO 25312 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 25312 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 11:19:11.314  INFO 25312 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 11:19:11.566  INFO 25312 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 11:19:11.566  INFO 25312 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 11:19:12.794  INFO 25312 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 11:19:12.830  INFO 25312 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 26 ms. Found 0 JDBC repository interfaces.
-2021-11-05 11:19:13.582  INFO 25312 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 11:19:13.596  INFO 25312 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 11:19:13.596  INFO 25312 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 11:19:13.743  INFO 25312 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-05 11:19:13.743  INFO 25312 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2176 ms
-2021-11-05 11:19:14.275  INFO 25312 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 11:19:14.429  INFO 25312 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 11:19:14.599  WARN 25312 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 11:19:14.601  INFO 25312 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 11:19:14.982  INFO 25312 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 11:19:15.143  INFO 25312 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 11:19:15.146  INFO 25312 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 11:19:15.163  INFO 25312 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 11:19:15.202  INFO 25312 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 11:19:15.399  INFO 25312 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.594 seconds (JVM running for 7.143)
-2021-11-05 11:19:24.343  INFO 25312 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-05 11:19:24.344  INFO 25312 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-05 11:19:24.345  INFO 25312 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-05 13:37:20.365  INFO 25312 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-05 13:37:20.374  INFO 25312 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-05 13:37:32.120  INFO 24292 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 24292 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 13:37:32.124  INFO 24292 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 13:37:32.567  INFO 24292 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 13:37:32.568  INFO 24292 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 13:37:33.876  INFO 24292 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 13:37:33.891  INFO 24292 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
-2021-11-05 13:37:34.547  INFO 24292 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 13:37:34.558  INFO 24292 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 13:37:34.558  INFO 24292 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 13:37:34.703  INFO 24292 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-05 13:37:34.703  INFO 24292 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2134 ms
-2021-11-05 13:37:35.238  INFO 24292 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 13:37:35.391  INFO 24292 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 13:37:35.573  WARN 24292 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 13:37:35.574  INFO 24292 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 13:37:36.008  INFO 24292 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 13:37:36.146  INFO 24292 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 13:37:36.148  INFO 24292 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 13:37:36.168  INFO 24292 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 13:37:36.207  INFO 24292 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 13:37:36.417  INFO 24292 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 5.007 seconds (JVM running for 7.763)
-2021-11-05 13:37:52.372  INFO 24292 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-05 13:37:52.372  INFO 24292 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-05 13:37:52.374  INFO 24292 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2021-11-05 13:52:47.652  INFO 24292 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-05 13:52:47.658  INFO 24292 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-05 13:53:00.434  INFO 7768 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 7768 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 13:53:00.438  INFO 7768 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 13:53:00.681  INFO 7768 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 13:53:00.681  INFO 7768 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 13:53:01.850  INFO 7768 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 13:53:01.866  INFO 7768 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
-2021-11-05 13:53:02.578  INFO 7768 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 13:53:02.589  INFO 7768 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 13:53:02.590  INFO 7768 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 13:53:02.746  INFO 7768 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-05 13:53:02.747  INFO 7768 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2065 ms
-2021-11-05 13:53:03.269  INFO 7768 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 13:53:03.423  INFO 7768 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 13:53:03.593  WARN 7768 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 13:53:03.594  INFO 7768 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 13:53:04.002  INFO 7768 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 13:53:04.138  INFO 7768 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 13:53:04.149  INFO 7768 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 13:53:04.171  INFO 7768 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 13:53:04.204  INFO 7768 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 13:53:04.377  INFO 7768 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.493 seconds (JVM running for 6.386)
-2021-11-05 13:53:40.305  INFO 7768 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-05 13:53:40.305  INFO 7768 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-05 13:53:40.306  INFO 7768 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-05 13:54:53.448  WARN 7768 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character (':' (code 58)): was expecting comma to separate Object entries; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character (':' (code 58)): was expecting comma to separate Object entries<LF> at [Source: (PushbackInputStream); line: 2, column: 19]]
-2021-11-05 13:55:32.517 ERROR 7768 --- [http-nio-8080-exec-4] com.yanolja.controller.UserController    : org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [
-			UPDATE user SET name = ?, profileImgUrl = ?, email = ?,
-			password = ?, phoneNumber = ?, WHERE userId = ?
-]; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE userId = 1' at line 2
-2021-11-05 13:56:08.528  WARN 7768 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name<LF> at [Source: (PushbackInputStream); line: 9, column: 2]]
-2021-11-05 13:56:25.951  WARN 7768 --- [http-nio-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unexpected character ('}' (code 125)): was expecting double-quote to start field name; nested exception is com.fasterxml.jackson.core.JsonParseException: Unexpected character ('}' (code 125)): was expecting double-quote to start field name<LF> at [Source: (PushbackInputStream); line: 8, column: 2]]
-2021-11-05 13:56:33.877 ERROR 7768 --- [http-nio-8080-exec-7] com.yanolja.controller.UserController    : org.springframework.jdbc.BadSqlGrammarException: PreparedStatementCallback; bad SQL grammar [
-			UPDATE user SET name = ?, profileImgUrl = ?, email = ?,
-			password = ?, phoneNumber = ?, WHERE userId = ?
-]; nested exception is java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE userId = 1' at line 2
-2021-11-05 13:57:44.413  INFO 7768 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-05 13:57:44.420  INFO 7768 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-05 13:57:57.969  INFO 7304 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 7304 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 13:57:57.972  INFO 7304 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 13:57:58.220  INFO 7304 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 13:57:58.221  INFO 7304 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 13:57:59.285  INFO 7304 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 13:57:59.300  INFO 7304 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
-2021-11-05 13:57:59.955  INFO 7304 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 13:57:59.966  INFO 7304 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 13:57:59.966  INFO 7304 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 13:58:00.123  INFO 7304 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-05 13:58:00.124  INFO 7304 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1903 ms
-2021-11-05 13:58:00.670  INFO 7304 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 13:58:00.832  INFO 7304 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 13:58:00.982  WARN 7304 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 13:58:00.984  INFO 7304 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 13:58:01.378  INFO 7304 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 13:58:01.512  INFO 7304 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 13:58:01.514  INFO 7304 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 13:58:01.533  INFO 7304 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 13:58:01.564  INFO 7304 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 13:58:01.735  INFO 7304 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.297 seconds (JVM running for 6.329)
-2021-11-05 13:58:47.831  INFO 7304 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-05 13:58:47.831  INFO 7304 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-05 13:58:47.833  INFO 7304 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2021-11-05 15:25:11.858  INFO 7304 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-05 15:25:11.867  INFO 7304 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-05 15:25:22.924  INFO 13440 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 13440 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 15:25:22.927  INFO 13440 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 15:25:23.259  INFO 13440 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 15:25:23.260  INFO 13440 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 15:25:24.599  INFO 13440 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 15:25:24.616  INFO 13440 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces.
-2021-11-05 15:25:25.279  INFO 13440 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 15:25:25.293  INFO 13440 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 15:25:25.293  INFO 13440 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 15:25:25.428  INFO 13440 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-05 15:25:25.428  INFO 13440 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2167 ms
-2021-11-05 15:25:25.950  INFO 13440 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 15:25:26.097  INFO 13440 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 15:25:26.246  WARN 13440 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 15:25:26.247  INFO 13440 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 15:25:26.639  INFO 13440 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 15:25:26.766  INFO 13440 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 15:25:26.769  INFO 13440 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 15:25:26.794  INFO 13440 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 15:25:26.824  INFO 13440 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 15:25:26.982  INFO 13440 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.671 seconds (JVM running for 6.961)
-2021-11-05 15:28:15.456  INFO 13440 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-05 15:28:15.457  INFO 13440 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-05 15:28:15.458  INFO 13440 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2021-11-05 17:32:56.962  INFO 13440 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2021-11-05 17:32:57.083  INFO 13440 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2021-11-05 17:33:17.670  INFO 10056 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 10056 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
-2021-11-05 17:33:17.721  INFO 10056 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
-2021-11-05 17:33:18.260  INFO 10056 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2021-11-05 17:33:18.260  INFO 10056 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2021-11-05 17:33:20.702  INFO 10056 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
-2021-11-05 17:33:20.718  INFO 10056 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
-2021-11-05 17:33:21.958  INFO 10056 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
-2021-11-05 17:33:21.982  INFO 10056 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2021-11-05 17:33:21.983  INFO 10056 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
-2021-11-05 17:33:22.333  INFO 10056 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2021-11-05 17:33:22.333  INFO 10056 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4071 ms
-2021-11-05 17:33:23.655  INFO 10056 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
-2021-11-05 17:33:23.958  INFO 10056 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
-2021-11-05 17:33:24.214  WARN 10056 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
-2021-11-05 17:33:24.215  INFO 10056 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2021-11-05 17:33:24.758  INFO 10056 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2021-11-05 17:33:25.024  INFO 10056 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
-2021-11-05 17:33:25.028  INFO 10056 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2021-11-05 17:33:25.074  INFO 10056 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2021-11-05 17:33:25.161  INFO 10056 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2021-11-05 17:33:25.452  INFO 10056 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 8.742 seconds (JVM running for 11.812)
-2021-11-05 17:35:32.692  INFO 10056 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2021-11-05 17:35:32.692  INFO 10056 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2021-11-05 17:35:32.694  INFO 10056 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2021-11-09 23:12:20.788  INFO 15340 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 15340 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:12:20.795  INFO 15340 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:12:21.064  INFO 15340 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:12:21.065  INFO 15340 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:12:22.093  INFO 15340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:12:22.110  INFO 15340 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:12:22.806  INFO 15340 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:12:22.819  INFO 15340 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:12:22.820  INFO 15340 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:12:22.983  INFO 15340 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:12:22.983  INFO 15340 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1917 ms
+2021-11-09 23:12:23.518  INFO 15340 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:12:23.685  INFO 15340 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:12:23.845  WARN 15340 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:12:23.846  INFO 15340 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:12:24.402  INFO 15340 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:12:24.563  INFO 15340 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:12:24.564  INFO 15340 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:12:24.590  INFO 15340 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:12:24.648  INFO 15340 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:12:24.891  INFO 15340 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.734 seconds (JVM running for 6.35)
+2021-11-09 23:14:30.542  INFO 15340 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:14:30.548  INFO 15340 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:14:38.999  INFO 3112 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 3112 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:14:39.001  INFO 3112 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:14:39.268  INFO 3112 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:14:39.269  INFO 3112 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:14:40.238  INFO 3112 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:14:40.253  INFO 3112 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:14:40.865  INFO 3112 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:14:40.875  INFO 3112 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:14:40.875  INFO 3112 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:14:41.005  INFO 3112 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:14:41.005  INFO 3112 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1736 ms
+2021-11-09 23:14:41.468  INFO 3112 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:14:41.614  INFO 3112 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:14:41.752  WARN 3112 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:14:41.753  INFO 3112 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:14:42.150  INFO 3112 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:14:42.263  INFO 3112 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:14:42.265  INFO 3112 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:14:42.281  INFO 3112 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:14:42.313  INFO 3112 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:14:42.517  INFO 3112 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.078 seconds (JVM running for 5.701)
+2021-11-09 23:16:09.852  INFO 3112 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:16:09.859  INFO 3112 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:16:18.253  INFO 9924 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 9924 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:16:18.256  INFO 9924 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:16:18.483  INFO 9924 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:16:18.484  INFO 9924 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:16:19.445  INFO 9924 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:16:19.461  INFO 9924 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:16:20.047  INFO 9924 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:16:20.057  INFO 9924 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:16:20.057  INFO 9924 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:16:20.192  INFO 9924 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:16:20.193  INFO 9924 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1708 ms
+2021-11-09 23:16:20.666  INFO 9924 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:16:20.815  INFO 9924 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:16:20.958  WARN 9924 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:16:20.959  INFO 9924 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:16:21.322  INFO 9924 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:16:21.454  INFO 9924 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:16:21.456  INFO 9924 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:16:21.474  INFO 9924 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:16:21.504  INFO 9924 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:16:21.668  INFO 9924 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 3.922 seconds (JVM running for 5.642)
+2021-11-09 23:17:10.172  INFO 9924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:17:10.182  INFO 9924 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:17:18.489  INFO 3624 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 3624 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:17:18.492  INFO 3624 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:17:18.755  INFO 3624 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:17:18.756  INFO 3624 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:17:19.765  INFO 3624 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:17:19.781  INFO 3624 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:17:20.397  INFO 3624 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:17:20.408  INFO 3624 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:17:20.409  INFO 3624 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:17:20.540  INFO 3624 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:17:20.540  INFO 3624 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1784 ms
+2021-11-09 23:17:21.005  INFO 3624 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:17:21.153  INFO 3624 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:17:21.305  WARN 3624 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:17:21.306  INFO 3624 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:17:21.685  INFO 3624 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:17:21.809  INFO 3624 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:17:21.810  INFO 3624 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:17:21.831  INFO 3624 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:17:21.861  INFO 3624 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:17:22.025  INFO 3624 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.123 seconds (JVM running for 5.666)
+2021-11-09 23:20:56.783  INFO 3624 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:20:56.791  INFO 3624 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:21:04.941  INFO 10840 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 10840 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:21:04.945  INFO 10840 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:21:05.170  INFO 10840 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:21:05.170  INFO 10840 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:21:06.165  INFO 10840 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:21:06.182  INFO 10840 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:21:06.782  INFO 10840 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:21:06.791  INFO 10840 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:21:06.792  INFO 10840 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:21:06.921  INFO 10840 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:21:06.921  INFO 10840 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1750 ms
+2021-11-09 23:21:07.381  INFO 10840 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:21:07.533  INFO 10840 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:21:07.683  WARN 10840 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:21:07.684  INFO 10840 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:21:08.067  INFO 10840 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:21:08.186  INFO 10840 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:21:08.187  INFO 10840 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:21:08.206  INFO 10840 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:21:08.238  INFO 10840 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:21:08.398  INFO 10840 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 3.968 seconds (JVM running for 5.517)
+2021-11-09 23:21:22.491  INFO 10840 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:21:22.497  INFO 10840 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:21:31.726  INFO 4468 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 4468 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:21:31.729  INFO 4468 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:21:31.973  INFO 4468 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:21:31.973  INFO 4468 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:21:33.073  INFO 4468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:21:33.091  INFO 4468 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 12 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:21:33.748  INFO 4468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:21:33.760  INFO 4468 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:21:33.761  INFO 4468 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:21:33.909  INFO 4468 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:21:33.910  INFO 4468 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1936 ms
+2021-11-09 23:21:34.426  INFO 4468 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:21:34.573  INFO 4468 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:21:34.735  WARN 4468 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:21:34.737  INFO 4468 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:21:35.128  INFO 4468 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:21:35.269  INFO 4468 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:21:35.271  INFO 4468 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:21:35.288  INFO 4468 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:21:35.319  INFO 4468 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:21:35.510  INFO 4468 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.325 seconds (JVM running for 6.529)
+2021-11-09 23:23:34.626  INFO 4468 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:23:34.634  INFO 4468 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:23:50.993  INFO 10676 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 10676 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:23:50.995  INFO 10676 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:23:51.220  INFO 10676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:23:51.220  INFO 10676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:23:52.185  INFO 10676 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:23:52.201  INFO 10676 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:23:52.785  INFO 10676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:23:52.795  INFO 10676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:23:52.796  INFO 10676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:23:52.928  INFO 10676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:23:52.929  INFO 10676 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1708 ms
+2021-11-09 23:23:53.413  INFO 10676 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:23:53.552  INFO 10676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:23:53.686  WARN 10676 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:23:53.688  INFO 10676 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:23:54.064  INFO 10676 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:23:54.194  INFO 10676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:23:54.195  INFO 10676 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:23:54.214  INFO 10676 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:23:54.244  INFO 10676 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:23:54.403  INFO 10676 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 3.913 seconds (JVM running for 5.437)
+2021-11-09 23:25:45.436  INFO 10676 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:25:45.442  INFO 10676 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:25:53.854  INFO 13324 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 13324 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:25:53.856  INFO 13324 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:25:54.106  INFO 13324 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:25:54.107  INFO 13324 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:25:55.162  INFO 13324 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:25:55.181  INFO 13324 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 14 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:25:55.797  INFO 13324 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:25:55.807  INFO 13324 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:25:55.807  INFO 13324 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:25:55.948  INFO 13324 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:25:55.948  INFO 13324 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1841 ms
+2021-11-09 23:25:56.420  INFO 13324 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:25:56.565  INFO 13324 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:25:56.720  WARN 13324 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:25:56.721  INFO 13324 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:25:57.102  INFO 13324 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:25:57.225  INFO 13324 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:25:57.227  INFO 13324 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:25:57.246  INFO 13324 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:25:57.279  INFO 13324 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:25:57.441  INFO 13324 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.204 seconds (JVM running for 5.473)
+2021-11-09 23:29:59.653  INFO 13324 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:29:59.660  INFO 13324 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:30:05.636  INFO 7032 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 7032 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:30:05.639  INFO 7032 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:30:05.875  INFO 7032 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:30:05.875  INFO 7032 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:30:06.803  INFO 7032 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:30:06.819  INFO 7032 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:30:07.504  INFO 7032 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:30:07.513  INFO 7032 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:30:07.514  INFO 7032 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:30:07.646  INFO 7032 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:30:07.647  INFO 7032 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1771 ms
+2021-11-09 23:30:08.164  INFO 7032 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:30:08.358  INFO 7032 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:30:08.519  WARN 7032 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:30:08.520  INFO 7032 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:30:08.926  INFO 7032 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:30:09.061  INFO 7032 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:30:09.063  INFO 7032 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:30:09.084  INFO 7032 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:30:09.116  INFO 7032 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:30:09.285  INFO 7032 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.253 seconds (JVM running for 6.296)
+2021-11-09 23:32:48.934  INFO 7032 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:32:48.941  INFO 7032 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:32:57.777  INFO 1724 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 1724 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:32:57.779  INFO 1724 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:32:58.045  INFO 1724 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:32:58.045  INFO 1724 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:32:59.188  INFO 1724 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:32:59.204  INFO 1724 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:32:59.859  INFO 1724 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:32:59.873  INFO 1724 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:32:59.874  INFO 1724 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:33:00.009  INFO 1724 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:33:00.010  INFO 1724 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1964 ms
+2021-11-09 23:33:00.490  INFO 1724 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:33:00.647  INFO 1724 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:33:00.833  WARN 1724 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:33:00.837  INFO 1724 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:33:01.233  INFO 1724 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:33:01.367  INFO 1724 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:33:01.368  INFO 1724 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:33:01.389  INFO 1724 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:33:01.421  INFO 1724 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:33:01.580  INFO 1724 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.484 seconds (JVM running for 6.226)
+2021-11-09 23:33:18.945  INFO 1724 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:33:18.951  INFO 1724 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:33:28.820  INFO 3448 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 3448 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:33:28.823  INFO 3448 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:33:29.151  INFO 3448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:33:29.151  INFO 3448 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:33:30.499  INFO 3448 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:33:30.517  INFO 3448 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 13 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:33:31.251  INFO 3448 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:33:31.263  INFO 3448 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:33:31.263  INFO 3448 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:33:31.444  INFO 3448 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:33:31.445  INFO 3448 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2293 ms
+2021-11-09 23:33:32.070  INFO 3448 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:33:32.325  INFO 3448 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:33:32.499  WARN 3448 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:33:32.500  INFO 3448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:33:32.920  INFO 3448 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:33:33.093  INFO 3448 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:33:33.095  INFO 3448 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:33:33.117  INFO 3448 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:33:33.159  INFO 3448 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:33:33.376  INFO 3448 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 5.306 seconds (JVM running for 7.578)
+2021-11-09 23:35:32.663  INFO 3448 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:35:32.670  INFO 3448 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:35:41.345  INFO 11028 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 11028 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:35:41.347  INFO 11028 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:35:41.599  INFO 11028 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:35:41.600  INFO 11028 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:35:42.647  INFO 11028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:35:42.667  INFO 11028 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:35:43.275  INFO 11028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:35:43.285  INFO 11028 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:35:43.285  INFO 11028 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:35:43.432  INFO 11028 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:35:43.433  INFO 11028 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1832 ms
+2021-11-09 23:35:44.080  INFO 11028 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:35:44.219  INFO 11028 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:35:44.358  WARN 11028 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:35:44.359  INFO 11028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:35:44.724  INFO 11028 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:35:44.849  INFO 11028 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:35:44.850  INFO 11028 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:35:44.870  INFO 11028 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:35:44.898  INFO 11028 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:35:45.049  INFO 11028 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 4.233 seconds (JVM running for 6.421)
+2021-11-09 23:36:31.886  INFO 11028 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:36:31.894  INFO 11028 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:36:39.579  INFO 15036 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 15036 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:36:39.582  INFO 15036 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:36:39.800  INFO 15036 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:36:39.800  INFO 15036 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:36:40.754  INFO 15036 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:36:40.769  INFO 15036 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:36:41.343  INFO 15036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:36:41.352  INFO 15036 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:36:41.353  INFO 15036 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:36:41.491  INFO 15036 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:36:41.492  INFO 15036 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1691 ms
+2021-11-09 23:36:41.953  INFO 15036 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:36:42.091  INFO 15036 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:36:42.229  WARN 15036 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:36:42.230  INFO 15036 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:36:42.607  INFO 15036 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:36:42.726  INFO 15036 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:36:42.727  INFO 15036 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:36:42.745  INFO 15036 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:36:42.775  INFO 15036 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:36:42.929  INFO 15036 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 3.918 seconds (JVM running for 5.226)
+2021-11-09 23:37:02.644  INFO 15036 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:37:02.652  INFO 15036 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-09 23:37:10.556  INFO 72 --- [restartedMain] com.yanolja.YanoljaApplication           : Starting YanoljaApplication using Java 17.0.1 on DESKTOP-HBA5G1K with PID 72 (D:\가천대학교\UMC\yanolja\out\production\classes started by kiki3 in D:\가천대학교\UMC\yanolja)
+2021-11-09 23:37:10.559  INFO 72 --- [restartedMain] com.yanolja.YanoljaApplication           : No active profile set, falling back to default profiles: default
+2021-11-09 23:37:10.772  INFO 72 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-11-09 23:37:10.772  INFO 72 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-11-09 23:37:11.763  INFO 72 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JDBC repositories in DEFAULT mode.
+2021-11-09 23:37:11.779  INFO 72 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 11 ms. Found 0 JDBC repository interfaces.
+2021-11-09 23:37:12.374  INFO 72 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-11-09 23:37:12.383  INFO 72 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-11-09 23:37:12.384  INFO 72 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.54]
+2021-11-09 23:37:12.532  INFO 72 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-11-09 23:37:12.532  INFO 72 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1759 ms
+2021-11-09 23:37:12.980  INFO 72 --- [restartedMain] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-11-09 23:37:13.116  INFO 72 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-11-09 23:37:13.248  WARN 72 --- [restartedMain] com.zaxxer.hikari.HikariConfig           : HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2021-11-09 23:37:13.249  INFO 72 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-09 23:37:13.632  INFO 72 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-09 23:37:13.748  INFO 72 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-11-09 23:37:13.749  INFO 72 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-11-09 23:37:13.767  INFO 72 --- [restartedMain] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-11-09 23:37:13.797  INFO 72 --- [restartedMain] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-11-09 23:37:13.949  INFO 72 --- [restartedMain] com.yanolja.YanoljaApplication           : Started YanoljaApplication in 3.909 seconds (JVM running for 5.337)
+2021-11-09 23:38:00.508  INFO 72 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-09 23:38:00.515  INFO 72 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

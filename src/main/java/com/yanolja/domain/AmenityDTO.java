@@ -5,17 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-//  Room의 객실을 담고있는 클래스
+// Room 의 편의정보(AmenitiesEnum)의 정보를 가지고있는 클래스
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class RoomContentDTO {
-    private int roomContentId;
+public class AmenityDTO {
+    private int amenityId;
     private int roomId;
-    private String imgUrl;
-    private String name;
-    private String content;
-    private int count; // 잔여 객실
+    private String amenityType; // 편의시설 정보
     private String deleteYN;
 }
