@@ -88,10 +88,10 @@ public class YanoljaApplication {
                 .append("name VARCHAR(10) not NULL,")
                 .append("email VARCHAR(30) not NULL,")
                 .append("password VARCHAR(20) not NULL,")
+                .append("phoneNumber VARCHAR(15) not NULL,")
                 .append("deleteYN VARCHAR(1),")
                 .append("createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,")
                 .append("updateDate TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,")
-                .append("deleteDate TIMESTAMP,")
                 .append("PRIMARY KEY(ownerId));")
                 .toString();
         stmt.execute(sql);
@@ -115,7 +115,6 @@ public class YanoljaApplication {
                 .append("deleteYN VARCHAR(1),")
                 .append("createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,")
                 .append("updateDate TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,")
-                .append("deleteDate TIMESTAMP,")
                 .append("PRIMARY KEY(roomId),")
                 .append("foreign key (ownerId) references owner(ownerId));")
                 .toString();
@@ -135,7 +134,6 @@ public class YanoljaApplication {
                 .append("deleteYN VARCHAR(1),")
                 .append("createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,")
                 .append("updateDate TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,")
-                .append("deleteDate TIMESTAMP,")
                 .append("PRIMARY KEY(roomContentId),")
                 .append("FOREIGN KEY (roomId) REFERENCES room(roomId));")
                 .toString();
@@ -148,7 +146,7 @@ public class YanoljaApplication {
         StringBuilder sb = new StringBuilder();
         String sql = sb.append("create table if not exists rent(")
                 .append("rentId INTEGER not NULL AUTO_INCREMENT,")
-                .append("roomId INTEGER not NULL,")
+                .append("roomContentId INTEGER not NULL,")
                 .append("openTime VARCHAR(10) not NULL,")
                 .append("closeTime VARCHAR(10) not NULL,")
                 .append("maxTime INTEGER not NULL,")
@@ -157,9 +155,8 @@ public class YanoljaApplication {
                 .append("deleteYN VARCHAR(1),")
                 .append("createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,")
                 .append("updateDate TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,")
-                .append("deleteDate TIMESTAMP,")
                 .append("PRIMARY KEY(rentId),")
-                .append("FOREIGN KEY (roomId) REFERENCES room (roomId));")
+                .append("FOREIGN KEY (roomContentId) REFERENCES room (roomContentId));")
                 .toString();
         stmt.execute(sql);
         System.out.println("rent 테이블이 생성되었습니다!");
@@ -197,7 +194,6 @@ public class YanoljaApplication {
                 .append("deleteYN VARCHAR(1),")
                 .append("createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,")
                 .append("updateDate TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,")
-                .append("deleteDate TIMESTAMP,")
                 .append("PRIMARY KEY(discountId),")
                 .append("FOREIGN KEY (lodgeId) REFERENCES lodge (lodgeId),")
                 .append("FOREIGN KEY (rentId) REFERENCES rent (rentId));")
@@ -223,7 +219,6 @@ public class YanoljaApplication {
                 .append("deleteYN VARCHAR(1),")
                 .append("createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,")
                 .append("updateDate TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,")
-                .append("deleteDate TIMESTAMP,")
                 .append("PRIMARY KEY(reserveId),")
                 .append("FOREIGN KEY (userId) REFERENCES user (userId),")
                 .append("FOREIGN KEY (roomId) REFERENCES room (roomId));")

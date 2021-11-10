@@ -12,5 +12,6 @@ public class OwnerDTO {
     private String name;
     private String email;
     private String password;
+    private String phoneNumber;
     private String deleteYN;
 }

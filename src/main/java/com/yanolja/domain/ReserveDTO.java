@@ -1,6 +1,15 @@
 package com.yanolja.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 // 숙소 예약 클래스
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
 public class ReserveDTO {
     private int reserveId;
     private int userId;
@@ -15,4 +24,6 @@ public class ReserveDTO {
     private String useName; // 이용자 정보
     private String usePhoneNumber; // 이용자 휴대폰번호
     private String visitMethod; // 숙소 방문 수단
+
+    private String deleteYN;
 }

@@ -1,4 +1,4 @@
-package com.yanolja.repository;
+package com.yanolja.repository.user;
 
 import com.yanolja.domain.UserDTO;
 import lombok.extern.slf4j.Slf4j;
@@ -51,8 +51,7 @@ private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 		SqlParameterSource parameterSource = new MapSqlParameterSource("userId", id);
 		return namedParameterJdbcTemplate.update(UserSql.DELETE, parameterSource);
 	}
-
-	// UserId를 사용해 User 찾기
+	// deleteYN N -> Y
 	public UserDTO findById(Integer id) {
 		SqlParameterSource parameterSource = new MapSqlParameterSource("userId", id);
 		return namedParameterJdbcTemplate.queryForObject(UserSql.SELECT, parameterSource,

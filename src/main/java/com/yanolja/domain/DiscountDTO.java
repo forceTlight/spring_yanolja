@@ -15,9 +15,9 @@ fisrtComeYN == 'Y' (선착순)일 경우 int count 활성화
 @Data
 public class DiscountDTO {
     private int discountId;
-    private int lodgeId;
-    private int rentId;
-    private int discoutNum; // 할인해주는 가격
+    private Integer lodgeId;
+    private Integer rentId;
+    private int discountNum; // 할인해주는 가격
     private int count; // 선착순 쿠폰 갯수
     private String firstComeYN; // 선착순
     private String deleteYN;

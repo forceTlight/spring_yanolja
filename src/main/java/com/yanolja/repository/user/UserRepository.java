@@ -1,4 +1,4 @@
-package com.yanolja.repository;
+package com.yanolja.repository.user;
 
 import com.yanolja.domain.UserDTO;
 
