@@ -22,4 +22,8 @@ public class RoomServiceImpl implements RoomService{
         log.debug("room id = {}", id);
         return roomRepository.deleteById(id);
     }
+    public RoomDTO findById(Integer id){
+        log.debug("room Id = {}", id);
+        return roomRepository.findById(id);
+    }
 }

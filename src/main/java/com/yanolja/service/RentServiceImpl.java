@@ -22,4 +22,8 @@ public class RentServiceImpl {
         log.debug("rent id = {}", id);
         return rentRepository.deleteById(id);
     }
+    public RentDTO findById(Integer id){
+        log.debug("rent Id = {}", id);
+        return rentRepository.findById(id);
+    }
 }

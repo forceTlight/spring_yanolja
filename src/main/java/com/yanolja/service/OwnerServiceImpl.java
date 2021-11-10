@@ -1,6 +1,7 @@
 package com.yanolja.service;
 
 import com.yanolja.domain.OwnerDTO;
+import com.yanolja.domain.UserDTO;
 import com.yanolja.repository.owner.OwnerRepositoryImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,9 @@ public class OwnerServiceImpl implements OwnerService{
     public Integer deleteById(Integer id) {
         log.debug("owner id = {}", id);
         return ownerRepository.deleteById(id);
+    }
+    public OwnerDTO findById(Integer id){
+        log.debug("owner Id = {}", id);
+        return ownerRepository.findById(id);
     }
 }

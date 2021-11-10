@@ -22,4 +22,8 @@ public class RoomContentServiceImpl implements RoomContentService{
         log.debug("roomContent id = {}", id);
         return roomContentRepository.deleteById(id);
     }
+    public RoomContentDTO findById(Integer id){
+        log.debug("roomContent Id = {}", id);
+        return roomContentRepository.findById(id);
+    }
 }

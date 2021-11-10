@@ -6,4 +6,5 @@ public interface OwnerService {
     public OwnerDTO insert(OwnerDTO owner);
     public Integer updateById(OwnerDTO owner);
     public Integer deleteById(Integer id);
+    public OwnerDTO findById(Integer id);
 }

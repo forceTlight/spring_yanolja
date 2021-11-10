@@ -16,4 +16,7 @@ class UserSql {
 	public static final String DELETE = """
 			UPDATE user SET deleteYN = 'Y' WHERE userId = :userId
 """;
+	public static final String FIND_BY_NAME = """
+			SELECT * from user where name = :name
+"""
 }

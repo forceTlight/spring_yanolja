@@ -22,4 +22,8 @@ public class ReserveServiceImpl {
         log.debug("reserve id = {}", id);
         return reserveRepository.deleteById(id);
     }
+    public ReserveDTO findById(Integer id){
+        log.debug("reserve Id = {}", id);
+        return reserveRepository.findById(id);
+    }
 }

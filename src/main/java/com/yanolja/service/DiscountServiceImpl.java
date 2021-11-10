@@ -22,4 +22,8 @@ public class DiscountServiceImpl implements DiscountService{
         log.debug("discount id = {}", id);
         return discountRepository.deleteById(id);
     }
+    public DiscountDTO findById(Integer id){
+        log.debug("discount Id = {}", id);
+        return discountRepository.findById(id);
+    }
 }

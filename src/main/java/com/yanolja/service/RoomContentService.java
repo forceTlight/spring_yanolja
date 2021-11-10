@@ -6,4 +6,5 @@ public interface RoomContentService {
     public RoomContentDTO insert(RoomContentDTO roomContent);
     public Integer updateById(RoomContentDTO roomContent);
     public Integer deleteById(Integer id);
+    public RoomContentDTO findById(Integer id);
 }

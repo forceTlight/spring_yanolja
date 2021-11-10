@@ -57,6 +57,12 @@ private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 		return namedParameterJdbcTemplate.queryForObject(UserSql.SELECT, parameterSource,
 				new UserMapper());
 	}
+
+	public UserDTO findByName(String name) {
+		SqlParameterSource parameterSource = new MapSqlParameterSource("name", name);
+		return namedParameterJdbcTemplate.queryForObject(UserSql.FIND_BY_NAME, parameterSource, new UserMapper());
+	}
+
 	// queryForObject 수행시 User 리턴해주기 위한 클래스
 	private static final class UserMapper implements RowMapper<UserDTO>{
 		@Override
