@@ -10,18 +10,60 @@ import lombok.NoArgsConstructor;
  * 유저의 정보를 담고있는 DTO
  */
 
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
 public class UserDTO {
-	private int userId;
-	private String name;
-	private String profileImgUrl;
-	private String email;
-	private String password;
-	private String phoneNumber;
-	private String deleteYN;
+	// 유저 기본정보
+	@Data
+	@AllArgsConstructor
+	@NoArgsConstructor
+	public static class Info{
+		private int userId;
+		private String name;
+		private String profileImgUrl;
+		private String email;
+		private String password;
+		private String phoneNumber;
+		private String deleteYN;
+	}
+	// 회원가입 REQUEST DTO
+	@Data
+	public static class RegisterReq{
+		private String name;
+		private String profileImgUrl;
+		private String email;
+		private String password;
+		private String phoneNumber;
+	}
+	// 회원가입 RESPONSE DTO
+	@Data
+	@Builder
+	public static class RegisterRes{
+		private String name;
+	}
+	// 로그인 REQUEST DTO
+	@Data
+	public static class LoginReq{
+		private String email;
+		private String password;
+	}
+	// 로그인 RESPONSE DTO
+	@Data
+	@Builder
+	public static class LoginRes{
+		private int userId;
+	}
+	// 닉네임 수정 REQUEST DTO
+	@Data
+	@Builder
+	public static class NameReq{
+		private String name;
+	}
+	// 닉네임 수정 RESPONSE DTO
+	@Data
+	@Builder
+	public static class PatchReq{
+		private int userId;
+		private String name;
+	}
 	/*private LocalDateTime insertTime;
 	private LocalDateTime updateTime;
 	private LocalDateTime deleteTime;*/

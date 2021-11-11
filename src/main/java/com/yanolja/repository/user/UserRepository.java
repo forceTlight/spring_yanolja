@@ -3,9 +3,9 @@ package com.yanolja.repository.user;
 import com.yanolja.domain.UserDTO;
 
 public interface UserRepository {
-	public UserDTO insert(UserDTO user);
-	public Integer updateById(UserDTO user);
+	public UserDTO.RegisterRes insert(UserDTO.RegisterReq user);
+	public Integer updateById(UserDTO.PatchReq user);
 	public Integer deleteById(Integer id);
-	public UserDTO findById(Integer id);
-	public UserDTO findByName(String name);
+	public UserDTO.Info findById(Integer id);
+	public UserDTO.Info findByEmail(String email);
 }

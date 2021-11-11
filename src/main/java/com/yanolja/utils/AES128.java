@@ -33,21 +33,19 @@ public class AES128 {
             e.printStackTrace();
         }
     }
-
+    // 암호화
     public String encrypt(final String str) throws Exception {
         cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivParameterSpec);
         byte[] encrypted = cipher.doFinal(str.getBytes(ENCODING_TYPE));
         return new String(Base64.getEncoder().encode(encrypted), ENCODING_TYPE);
     }
-
+    // 복호화
     public String decrypt(final String str) throws Exception {
         cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, ivParameterSpec);
         byte[] decoded = Base64.getDecoder().decode(str.getBytes(ENCODING_TYPE));
         return new String(cipher.doFinal(decoded), ENCODING_TYPE);
     }
-    /* // validation (16자가 아니면 예외처리)
-    private void validation(final String key) {
-        Optional.ofNullable(key)
+    /*.ofNullable(key)
                 .filter(Predicate.not(String::isBlank))
                 .filter(Predicate.not(s -> s.length() != 16))
                 .orElseThrow(IllegalArgumentException::new);

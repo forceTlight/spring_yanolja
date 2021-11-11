@@ -10,13 +10,12 @@ class UserSql {
 			""";
 
 	public static final String UPDATE = """
-			UPDATE user SET name = :name, profileImgUrl = :profileImgUrl, email = :email,
-			password = :password, phoneNumber = :phoneNumber WHERE userId = :userId
+			UPDATE user SET name = :name WHERE userId = :userId
 """;
 	public static final String DELETE = """
 			UPDATE user SET deleteYN = 'Y' WHERE userId = :userId
 """;
-	public static final String FIND_BY_NAME = """
-			SELECT * from user where name = :name
+	public static final String FIND_BY_EMAIL = """
+			SELECT * from user where email = :email
 """
 }
