@@ -1,16 +1,16 @@
 package com.yanolja.service;
 
 import com.yanolja.domain.RentDTO;
-import com.yanolja.repository.rent.RentRepositoryImpl;
+import com.yanolja.repository.rent.RentRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class RentServiceImpl {
+public class RentService {
     @Autowired
-    private RentRepositoryImpl rentRepository;
+    private RentRepository rentRepository;
     public RentDTO insert(RentDTO rent) {
         return rentRepository.insert(rent);
     }

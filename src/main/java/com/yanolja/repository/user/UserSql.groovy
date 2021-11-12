@@ -1,7 +1,6 @@
 package com.yanolja.repository.user
 
-class UserSql {
-	public static final String INSERT = """
+class UserSql {public static final String INSERT = """
 			INSERT INTO user (name, profileImgUrl, email, password, phoneNumber, deleteYN)
 			values (:name, :profileImgUrl, :email, :password, :phoneNumber, :deleteYN)
 			""";
@@ -18,4 +17,5 @@ class UserSql {
 	public static final String FIND_BY_EMAIL = """
 			SELECT * from user where email = :email
 """
+
 }

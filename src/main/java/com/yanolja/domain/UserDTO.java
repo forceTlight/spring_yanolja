@@ -53,7 +53,7 @@ public class UserDTO {
 	}
 	// 닉네임 수정 REQUEST DTO
 	@Data
-	@Builder
+	@NoArgsConstructor
 	public static class NameReq{
 		private String name;
 	}

@@ -1,7 +1,7 @@
 package com.yanolja.controller;
 
 import com.yanolja.domain.LodgeDTO;
-import com.yanolja.service.LodgeServiceImpl;
+import com.yanolja.service.LodgeService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/lodge")
 public class LodgeController {
     @Autowired
-    LodgeServiceImpl lodgeService;
+    LodgeService lodgeService;
 
     @PostMapping(value="/register")
     @ApiOperation(value = "숙박등록", notes = "숙박을 새로 등록함.")

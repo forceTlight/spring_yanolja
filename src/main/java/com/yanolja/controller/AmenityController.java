@@ -1,7 +1,7 @@
 package com.yanolja.controller;
 
 import com.yanolja.domain.AmenityDTO;
-import com.yanolja.service.AmenityServiceImpl;
+import com.yanolja.service.AmenityService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/amenity")
 public class AmenityController {
     @Autowired
-    AmenityServiceImpl amenityService;
+    AmenityService amenityService;
 
     @PostMapping(value="/register")
     @ApiOperation(value = "편의시설 등록", notes = "편의시설을 새로 등록함.")

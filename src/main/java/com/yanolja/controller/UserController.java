@@ -5,7 +5,7 @@ import com.yanolja.configuration.DefaultRes;
 import com.yanolja.configuration.ResponseMessage;
 import com.yanolja.configuration.StatusCode;
 import com.yanolja.domain.UserDTO;
-import com.yanolja.service.UserServiceImpl;
+import com.yanolja.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
 	@Autowired
-	UserServiceImpl userService;
+	UserService userService;
 
 	// 회원가입
 	@PostMapping(value="/register")
@@ -55,7 +55,6 @@ public class UserController {
 			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}*/
-	@ResponseBody
 	@PatchMapping(value="/{userId}")
 	@ApiOperation(value = "유저 닉네임 수정", notes = "유저 닉네임을 수정한다.")
 	public DefaultRes<String> userUpdate(@PathVariable("userId") int userId, @RequestBody UserDTO.NameReq user){

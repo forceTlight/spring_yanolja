@@ -1,7 +1,7 @@
 package com.yanolja.controller;
 
 import com.yanolja.domain.DiscountDTO;
-import com.yanolja.service.DiscountServiceImpl;
+import com.yanolja.service.DiscountService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/discount")
 public class DiscountController {
     @Autowired
-    DiscountServiceImpl discountService;
+    DiscountService discountService;
 
     @PostMapping(value="/register")
     @ApiOperation(value = "할인등록", notes = "할인을 새로 등록함.")

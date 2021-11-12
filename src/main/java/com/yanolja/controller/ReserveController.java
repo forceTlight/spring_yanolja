@@ -1,7 +1,7 @@
 package com.yanolja.controller;
 
 import com.yanolja.domain.ReserveDTO;
-import com.yanolja.service.ReserveServiceImpl;
+import com.yanolja.service.ReserveService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/reserve")
 public class ReserveController {
     @Autowired
-    ReserveServiceImpl reserveService;
+    ReserveService reserveService;
 
     @PostMapping(value="/register")
     @ApiOperation(value = "예약 등록", notes = "예약을 새로 등록함.")

@@ -1,7 +1,7 @@
 package com.yanolja.controller;
 
 import com.yanolja.domain.RentDTO;
-import com.yanolja.service.RentServiceImpl;
+import com.yanolja.service.RentService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/rent")
 public class RentController {
     @Autowired
-    RentServiceImpl rentService;
+    RentService rentService;
 
     @PostMapping(value="/register")
     @ApiOperation(value = "대실등록", notes = "대실을 새로 등록함.")

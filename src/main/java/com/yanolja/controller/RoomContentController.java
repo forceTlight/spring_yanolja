@@ -1,7 +1,7 @@
 package com.yanolja.controller;
 
 import com.yanolja.domain.RoomContentDTO;
-import com.yanolja.service.RoomContentServiceImpl;
+import com.yanolja.service.RoomContentService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/roomcontent")
 public class RoomContentController {
     @Autowired
-    RoomContentServiceImpl roomContentService;
+    RoomContentService roomContentService;
 
     @PostMapping(value="/register")
     @ApiOperation(value = "숙소정보 등록", notes = "숙소정보를 새로 등록함.")

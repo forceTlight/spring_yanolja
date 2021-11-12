@@ -1,67 +1,82 @@
 package com.yanolja.controller;
 
+import com.yanolja.configuration.DefaultException;
+import com.yanolja.configuration.DefaultRes;
+import com.yanolja.configuration.ResponseMessage;
+import com.yanolja.configuration.StatusCode;
 import com.yanolja.domain.OwnerDTO;
-import com.yanolja.service.OwnerServiceImpl;
+import com.yanolja.service.OwnerService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
 @RequestMapping("/owner")
 public class OwnerController {
-    
     @Autowired
-    OwnerServiceImpl ownerService;
+    OwnerService ownerService;
 
+    // 회원가입
     @PostMapping(value="/register")
-    @ApiOperation(value = "오너등록", notes = "오너를 새로 등록함.")
-    public ResponseEntity<OwnerDTO> ownerCreate(@RequestBody OwnerDTO owner){
+    @ApiOperation(value = "점주등록", notes = "점주를 새로 등록함.")
+    public DefaultRes<OwnerDTO.RegisterRes> ownerCreate(@RequestBody OwnerDTO.RegisterReq ownerReq){
         try {
-            log.debug("owner = {}", owner.toString());
-            return new ResponseEntity<>(ownerService.insert(owner), HttpStatus.OK);
-        }catch(Exception e) {
+            log.debug("owner = {}", ownerReq.toString());
+            OwnerDTO.RegisterRes ownerRes = ownerService.register(ownerReq);
+            return new DefaultRes<OwnerDTO.RegisterRes>(StatusCode.CREATED,ResponseMessage.CREATED_USER, ownerRes);
+        }catch(DefaultException e) { // 암호화 에러
             log.error(e.toString());
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultRes<>(e.getStatusCode(),e.getMessage());
         }
     }
-    @GetMapping(value="/find/{ownerId}")
-    @ApiOperation(value = "오너상세조회", notes = "ownerId로 오너를 조회함.")
-    public ResponseEntity<OwnerDTO> ownerFindById(@PathVariable Integer ownerId){
-        try{
-            log.debug("owner = {}", ownerId);
-            OwnerDTO owner = ownerService.findById(ownerId);
-            return new ResponseEntity<>(ownerService.findById(ownerId), HttpStatus.OK);
-        }catch(Exception e){
-            log.error(e.toString());
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-    @PutMapping(value="/update")
-    @ApiOperation(value = "오너수정", notes = "오너 레이블을 수정한다.")
-    public ResponseEntity<String> ownerUpdate(@RequestBody OwnerDTO owner){
+    // 로그인
+    @PostMapping(value="/login")
+    @ApiOperation(value = "로그인", notes = "점주를 새로 등록함.")
+    public DefaultRes<OwnerDTO.LoginRes> ownerLogin(@RequestBody OwnerDTO.LoginReq ownerReq){
         try {
-            log.debug("owner = {}", owner.toString());
-            Integer updatedCnt = ownerService.updateById(owner);
-            return new ResponseEntity<>(String.format("%d updated", updatedCnt), HttpStatus.OK);
-        }catch(Exception e) {
+            log.debug("owner = {}", ownerReq.toString());
+            return new DefaultRes<OwnerDTO.LoginRes>(StatusCode.LOGIN_SUCCESS, ResponseMessage.LOGIN_SUCCESS,ownerService.login(ownerReq));
+        }catch(DefaultException e) { // 복호화 에러, 로그인 실패
             log.error(e.toString());
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultRes<>(e.getStatusCode(), e.getMessage());
+        }
+    }/*
+	@GetMapping(value="")
+	@ApiOperation(value = "점주 조회", notes = "닉네임으로 점주를 조회함, 닉네임을 안적으면 전체 점주 리스트를 반환한다.")
+	public DefaultRes<OwnerDTO.Info> ownerFindById(@PathVariable(required = false) String name){
+		try{
+			log.debug("owner = {}", ownerId);
+			OwnerDTO owner = ownerService.findById(ownerId);
+			return new ResponseEntity<>(ownerService.findById(ownerId), HttpStatus.OK);
+		}catch(Exception e){
+			log.error(e.toString());
+			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}*/
+    @PatchMapping(value="/{ownerId}")
+    @ApiOperation(value = "점주 닉네임 수정", notes = "점주 닉네임을 수정한다.")
+    public DefaultRes<String> ownerUpdate(@PathVariable("ownerId") int ownerId, @RequestBody OwnerDTO.NameReq owner){
+        OwnerDTO.PatchReq ownerReq = OwnerDTO.PatchReq.builder().ownerId(ownerId).name(owner.getName()).build();
+        try {
+            ownerService.updateNickName(ownerReq);
+            return new DefaultRes<String>(StatusCode.OK, ResponseMessage.UPDATE_USER);
+        }catch(DefaultException e) {
+            log.error(e.toString());
+            return new DefaultRes<String>(e.getStatusCode(), e.getMessage());
         }
     }
-    @DeleteMapping(value="/delete/{ownerId}")
-    @ApiOperation(value = "오너삭제", notes = "ownerId를 받아서 오너를 삭제한다.")
-    public ResponseEntity<String> ownerDelete(@PathVariable Integer ownerId){
+    @GetMapping(value="/delete/{ownerId}")
+    @ApiOperation(value = "점주삭제", notes = "ownerId를 받아서 점주를 삭제한다.")
+    public DefaultRes<String> ownerDelete(@PathVariable("ownerId") int ownerId){
         try {
             log.debug("owner id = {}", ownerId);
-            Integer deletedCnt = ownerService.deleteById(ownerId);
-            return new ResponseEntity<>(String.format("%d deleted.", deletedCnt), HttpStatus.OK);
-        }catch(Exception e) {
+            ownerService.deleteById(ownerId);
+            return new DefaultRes<String>(StatusCode.OK, ResponseMessage.DELETE_USER);
+        }catch(DefaultException e) {
             log.error(e.toString());
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultRes<String>(e.getStatusCode(), e.getMessage());
         }
     }
 }

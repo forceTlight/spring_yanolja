@@ -5,8 +5,8 @@ class RoomSql {
 			INSERT INTO room (ownerId, roomType, name, phoneNumber, location, ImgUrl, businessNumber, service, information, deleteYN)
 			values (:ownerId, :roomType, :name, :phoneNumber, :location, :ImgUrl, : businessNumber, :service, :information, :deleteYN)
 			""";
-    public static final String SELECT = """
-			SELECT * from room where roomId = :roomId
+    public static final String FIND_BY_NAME = """
+			SELECT * from room where name like :roomId
 			""";
 
     public static final String UPDATE = """
