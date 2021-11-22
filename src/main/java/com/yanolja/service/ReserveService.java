@@ -1,6 +1,6 @@
 package com.yanolja.service;
 
-import com.yanolja.domain.ReserveDTO;
+import com.yanolja.domain.Reserve;
 import com.yanolja.repository.reserve.ReserveRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 public class ReserveService {
     @Autowired
     private ReserveRepository reserveRepository;
-    public ReserveDTO insert(ReserveDTO reserve) {
+    public Reserve insert(Reserve reserve) {
         return reserveRepository.insert(reserve);
     }
-    public Integer updateById(ReserveDTO reserve) {
+    public Integer updateById(Reserve reserve) {
         log.debug("reserve Id = {}", reserve.getReserveId());
         return reserveRepository.updateById(reserve);
     }
@@ -22,7 +22,7 @@ public class ReserveService {
         log.debug("reserve id = {}", id);
         return reserveRepository.deleteById(id);
     }
-    public ReserveDTO findById(Integer id){
+    public Reserve findById(Integer id){
         log.debug("reserve Id = {}", id);
         return reserveRepository.findById(id);
     }

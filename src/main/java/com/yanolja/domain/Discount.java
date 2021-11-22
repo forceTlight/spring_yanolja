@@ -13,7 +13,7 @@ fisrtComeYN == 'Y' (선착순)일 경우 int count 활성화
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class DiscountDTO {
+public class Discount {
     private int discountId;
     private Integer lodgeId;
     private Integer rentId;

@@ -1,6 +1,6 @@
 package com.yanolja.repository.rent;
 
-import com.yanolja.domain.RentDTO;
+import com.yanolja.domain.Rent;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -23,7 +23,7 @@ public class RentRepository {
     }
 
     // Rent 레코드 추가
-    public RentDTO insert(RentDTO rent) {
+    public Rent.RegisterReq insert(Rent.RegisterReq rent) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         SqlParameterSource parameterSource = new MapSqlParameterSource("roomContentId", rent.getRoomContentId())
                 .addValue("openTime", rent.getOpenTime())
@@ -38,7 +38,7 @@ public class RentRepository {
         return rent;
     }
     // rentId를 사용해 레코드 업데이트
-    public Integer updateById(RentDTO rent) {
+    public Integer updateById(Rent.PatchReq rent) {
         String qry = RentSql.UPDATE;
         SqlParameterSource parameterSource = new MapSqlParameterSource("rentId", rent.getRentId())
                 .addValue("openTime", rent.getOpenTime())
@@ -54,16 +54,22 @@ public class RentRepository {
         return namedParameterJdbcTemplate.update(RentSql.DELETE, parameterSource);
     }
     // rentId로 RentDTO 반환
-    public RentDTO findById(Integer id) {
+    public Rent.Info findById(Integer id) {
         SqlParameterSource parameterSource = new MapSqlParameterSource("rentId", id);
         return namedParameterJdbcTemplate.queryForObject(RentSql.SELECT, parameterSource,
                 new RentRepository.rentMapper());
     }
+    // roomContentId로 RentDTO 반환
+    public Rent.Info findByRoomContentId(Integer id) {
+        SqlParameterSource parameterSource = new MapSqlParameterSource("roomContentId", id);
+        return namedParameterJdbcTemplate.queryForObject(RentSql.SELECT, parameterSource,
+                new RentRepository.rentMapper());
+    }
     // queryForObject 수행시 Object 리턴해주기 위한 클래스
-    private static final class rentMapper implements RowMapper<RentDTO> {
+    private static final class rentMapper implements RowMapper<Rent.Info> {
         @Override
-        public RentDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-            RentDTO rent = new RentDTO();
+        public Rent.Info mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Rent.Info rent = new Rent.Info();
             rent.setRentId(rs.getInt("rentId"));
             rent.setRoomContentId(rs.getInt("roomContentId"));
             rent.setOpenTime(rs.getString("openTime"));
@@ -71,7 +77,6 @@ public class RentRepository {
             rent.setMaxTime(rs.getInt("maxTime"));
             rent.setPrice(rs.getInt("price"));
             rent.setCount(rs.getInt("ImgUrl"));
-            rent.setDeleteYN(rs.getString("deleteYN"));
             return rent;
         }
     }

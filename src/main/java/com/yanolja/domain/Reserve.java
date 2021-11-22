@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class ReserveDTO {
+public class Reserve {
     private int reserveId;
     private int userId;
     private int roomId;

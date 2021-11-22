@@ -1,6 +1,6 @@
 package com.yanolja.repository.owner;
 
-import com.yanolja.domain.OwnerDTO;
+import com.yanolja.domain.Owner;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -22,7 +22,7 @@ public class OwnerRepository {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
     // Owner 레코드 추가
-    public OwnerDTO.RegisterRes insert(OwnerDTO.RegisterReq owner) {
+    public Owner.RegisterRes insert(Owner.RegisterReq owner) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         SqlParameterSource parameterSource = new MapSqlParameterSource("name", owner.getName())
                 .addValue("email", owner.getEmail())
@@ -31,10 +31,10 @@ public class OwnerRepository {
                 .addValue("deleteYN", "N");
         int affectedRows = namedParameterJdbcTemplate.update(ownerSql.INSERT, parameterSource, keyHolder);
         log.debug("{} inserted, new id = {}", affectedRows, keyHolder.getKeys());
-        return OwnerDTO.RegisterRes.builder().name(owner.getName()).build();
+        return Owner.RegisterRes.builder().name(owner.getName()).build();
     }
     // OwnerId를 사용해 레코드 업데이트
-    public Integer updateById(OwnerDTO.PatchReq owner) {
+    public Integer updateById(Owner.PatchReq owner) {
         String qry = OwnerSql.UPDATE;
         SqlParameterSource parameterSource = new MapSqlParameterSource("ownerId", owner.getOwnerId())
                 .addValue("name", owner.getName());
@@ -46,22 +46,22 @@ public class OwnerRepository {
         return namedParameterJdbcTemplate.update(OwnerSql.DELETE, parameterSource);
     }
     // deleteYN N -> Y
-    public OwnerDTO.Info findById(Integer id) {
+    public Owner.Info findById(Integer id) {
         SqlParameterSource parameterSource = new MapSqlParameterSource("ownerId", id);
         return namedParameterJdbcTemplate.queryForObject(OwnerSql.SELECT, parameterSource,
                 new OwnerRepository.OwnerMapper());
     }
 
-    public OwnerDTO.Info findByEmail(String email) {
+    public Owner.Info findByEmail(String email) {
         SqlParameterSource parameterSource = new MapSqlParameterSource("email", email);
         return namedParameterJdbcTemplate.queryForObject(OwnerSql.FIND_BY_EMAIL, parameterSource, new OwnerRepository.OwnerMapper());
     }
 
     // queryForObject 수행시 Owner 리턴해주기 위한 클래스
-    private static final class OwnerMapper implements RowMapper<OwnerDTO.Info>{
+    private static final class OwnerMapper implements RowMapper<Owner.Info>{
         @Override
-        public OwnerDTO.Info mapRow(ResultSet rs, int rowNum) throws SQLException {
-            OwnerDTO.Info owner = new OwnerDTO.Info();
+        public Owner.Info mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Owner.Info owner = new Owner.Info();
             owner.setOwnerId(rs.getInt("ownerId"));
             owner.setEmail(rs.getString("email"));
             owner.setName(rs.getString("name"));

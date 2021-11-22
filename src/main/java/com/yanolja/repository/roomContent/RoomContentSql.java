@@ -16,4 +16,8 @@ public class RoomContentSql {
     public static final String DELETE = """
 			UPDATE roomContent SET deleteYN = 'Y' WHERE roomContentId = :roomContentId
             """;
+	// roomId(FK)로 List<RoomContent> 반환
+	public static final String FINDBYROOMID = """
+			SELECT * from roomContent where roomId = :roomId
+			""";
 }

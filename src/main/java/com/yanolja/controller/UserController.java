@@ -1,15 +1,21 @@
 package com.yanolja.controller;
 
 import com.yanolja.configuration.DefaultException;
-import com.yanolja.configuration.DefaultRes;
+import com.yanolja.configuration.DefaultResponse;
 import com.yanolja.configuration.ResponseMessage;
-import com.yanolja.configuration.StatusCode;
-import com.yanolja.domain.UserDTO;
+import com.yanolja.configuration.Status;
+import com.yanolja.domain.User;
+import com.yanolja.repository.user.UserRepository;
 import com.yanolja.service.UserService;
+import com.yanolja.utils.JwtAuthenticationProvider;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Slf4j
 @RestController
@@ -17,30 +23,46 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 	@Autowired
 	UserService userService;
-
-	// 회원가입
+	@Autowired
+	UserRepository userRepository;
+	@Autowired
+	JwtAuthenticationProvider jwtAuthenticationProvider;
+	/*
+	 	회원가입
+	 */
 	@PostMapping(value="/register")
 	@ApiOperation(value = "유저등록", notes = "유저를 새로 등록함.")
-	public DefaultRes<UserDTO.RegisterRes> userCreate(@RequestBody UserDTO.RegisterReq userReq){
+	public DefaultResponse<User.RegisterRes> userCreate(@RequestBody User.RegisterReq userReq){
 		try {
-			log.debug("user = {}", userReq.toString());
-			UserDTO.RegisterRes userRes = userService.register(userReq);
-			return new DefaultRes<UserDTO.RegisterRes>(StatusCode.CREATED,ResponseMessage.CREATED_USER, userRes);
+			User.RegisterRes userRes = userService.register(userReq);
+			return new DefaultResponse<User.RegisterRes>(Status.CREATED,ResponseMessage.CREATED_USER, userRes);
 		}catch(DefaultException e) { // 암호화 에러
-			log.error(e.toString());
-			return new DefaultRes<>(e.getStatusCode(),e.getMessage());
+			return new DefaultResponse<>(e.getStatusCode(),e.getMessage());
+		}catch (Exception e){ // 데이터베이스 에러
+			return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.DB_ERROR);
 		}
 	}
-	// 로그인
+	/*
+	 	로그인
+	 */
 	@PostMapping(value="/login")
 	@ApiOperation(value = "로그인", notes = "유저를 새로 등록함.")
-	public DefaultRes<UserDTO.LoginRes> userLogin(@RequestBody UserDTO.LoginReq userReq){
+	public DefaultResponse<User.LoginRes> userLogin(@RequestBody User.LoginReq userReq,
+													HttpServletResponse response){
 		try {
-			log.debug("user = {}", userReq.toString());
-			return new DefaultRes<UserDTO.LoginRes>(StatusCode.LOGIN_SUCCESS, ResponseMessage.LOGIN_SUCCESS,userService.login(userReq));
+			User.LoginRes loginRes = userService.login(userReq);
+			// JWT TOKEN 설정
+			String token = jwtAuthenticationProvider.createToken(loginRes.getEmail());
+			response.setHeader("X-AUTH-TOKEN", token);
+			// COOKIE 설정
+			Cookie cookie = new Cookie("X-AUTH-TOKEN", token);
+			cookie.setPath("/");
+			cookie.setHttpOnly(true);
+			cookie.setSecure(true);
+			response.addCookie(cookie);
+			return new DefaultResponse<User.LoginRes>(Status.LOGIN_SUCCESS, ResponseMessage.LOGIN_SUCCESS,loginRes);
 		}catch(DefaultException e) { // 복호화 에러, 로그인 실패
-			log.error(e.toString());
-			return new DefaultRes<>(e.getStatusCode(), e.getMessage());
+			return new DefaultResponse<>(e.getStatusCode(), e.getMessage());
 		}
 	}/*
 	@GetMapping(value="")
@@ -57,26 +79,35 @@ public class UserController {
 	}*/
 	@PatchMapping(value="/{userId}")
 	@ApiOperation(value = "유저 닉네임 수정", notes = "유저 닉네임을 수정한다.")
-	public DefaultRes<String> userUpdate(@PathVariable("userId") int userId, @RequestBody UserDTO.NameReq user){
-		UserDTO.PatchReq userReq = UserDTO.PatchReq.builder().userId(userId).name(user.getName()).build();
+	public DefaultResponse<String> userUpdate(@PathVariable("userId") int userId, @RequestParam String name
+	, HttpServletRequest request){
+		User.PatchReq userReq = User.PatchReq.builder().userId(userId).name(name).build();
 		try {
 			userService.updateNickName(userReq);
-			return new DefaultRes<String>(StatusCode.OK, ResponseMessage.UPDATE_USER);
+			// userId로 email 가져오기
+			String userEmail = userRepository.getEmailById(userId);
+			// jwt에서 email 추출
+			String jwtEmail = jwtAuthenticationProvider.getUserPk(request);
+			// jwt validation
+			if(jwtEmail != userEmail){
+				throw new DefaultException(ResponseMessage.INVALID_JWT, Status.JWT_ERROR);
+			}
+			// 같다면 유저 네임 변경
+			return new DefaultResponse<String>(Status.OK, ResponseMessage.UPDATE_USER);
 		}catch(DefaultException e) {
 			log.error(e.toString());
-			return new DefaultRes<String>(e.getStatusCode(), e.getMessage());
+			return new DefaultResponse<String>(e.getStatusCode(), e.getMessage());
 		}
 	}
-	@GetMapping(value="/delete/{userId}")
+	@PatchMapping(value="/delete/{userId}")
 	@ApiOperation(value = "유저삭제", notes = "userId를 받아서 유저를 삭제한다.")
-	public DefaultRes<String> userDelete(@PathVariable("userId") int userId){
+	public DefaultResponse<String> userDelete(@PathVariable("userId") int userId){
 		try {
-			log.debug("user id = {}", userId);
 			userService.deleteById(userId);
-			return new DefaultRes<String>(StatusCode.OK, ResponseMessage.DELETE_USER);
+			return new DefaultResponse<String>(Status.OK, ResponseMessage.DELETE_USER);
 		}catch(DefaultException e) {
 			log.error(e.toString());
-			return new DefaultRes<String>(e.getStatusCode(), e.getMessage());
+			return new DefaultResponse<String>(e.getStatusCode(), e.getMessage());
 		}
 	}
 }

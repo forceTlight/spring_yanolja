@@ -1,66 +1,81 @@
 package com.yanolja.controller;
 
-import com.yanolja.domain.RoomContentDTO;
+import com.yanolja.configuration.DefaultResponse;
+import com.yanolja.configuration.ResponseMessage;
+import com.yanolja.configuration.Status;
+import com.yanolja.domain.RoomContent;
 import com.yanolja.service.RoomContentService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
 @RequestMapping("/roomcontent")
 public class RoomContentController {
+    
     @Autowired
     RoomContentService roomContentService;
 
     @PostMapping(value="/register")
-    @ApiOperation(value = "숙소정보 등록", notes = "숙소정보를 새로 등록함.")
-    public ResponseEntity<RoomContentDTO> roomContentCreate(@RequestBody RoomContentDTO roomContent){
+    @ApiOperation(value = "객실정보 등록", notes = "객실정보를 새로 등록함.")
+    public DefaultResponse<String> roomContentCreate(@RequestBody RoomContent.RegisterReq roomContent){
         try {
             log.debug("roomContent = {}", roomContent.toString());
-            return new ResponseEntity<>(roomContentService.insert(roomContent), HttpStatus.OK);
+            return new DefaultResponse<String>(Status.CREATED, ResponseMessage.ROOMCONTENT_REGISTER_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultResponse<String>(Status.DB_ERROR, ResponseMessage.ROOMCONTENT_REGISTER_ERROR);
         }
     }
     @GetMapping(value="/find/{roomContentId}")
-    @ApiOperation(value = "숙소정보 상세조회", notes = "roomContentId로 숙소정보를 조회함.")
-    public ResponseEntity<RoomContentDTO> roomContentFindById(@PathVariable Integer roomContentId){
+    @ApiOperation(value = "객실정보 상세조회", notes = "roomContentId로 객실정보를 조회함.")
+    public DefaultResponse<RoomContent.Info> roomContentFindById(@PathVariable Integer roomContentId){
         try{
             log.debug("roomContent = {}", roomContentId);
-            RoomContentDTO roomContent = roomContentService.findById(roomContentId);
-            return new ResponseEntity<>(roomContentService.findById(roomContentId), HttpStatus.OK);
+            RoomContent.Info roomContent = roomContentService.findById(roomContentId);
+            return new DefaultResponse<RoomContent.Info>(Status.OK, ResponseMessage.ROOMCONTENT_FIND_OK);
         }catch(Exception e){
             log.error(e.toString());
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.ROOMCONTENT_FIND_ERROR);
         }
     }
-    @PutMapping(value="/update")
-    @ApiOperation(value = "숙소정보 수정", notes = "숙소정보 레이블을 수정한다.")
-    public ResponseEntity<String> roomContentUpdate(@RequestBody RoomContentDTO roomContent){
+    @GetMapping(value="/load/{roomId}")
+    @ApiOperation(value = "객실정보 불러오기", notes = "roomId로 객실정보를 조회함.")
+    public DefaultResponse<List<RoomContent.Info>> roomContentFindByRoomId(@PathVariable Integer roomId){
+        try{
+            List<RoomContent.Info> roomContentList = roomContentService.findByRoomId(roomId);
+            return new DefaultResponse<List<RoomContent.Info>>(Status.OK, ResponseMessage.ROOMCONTENT_FINDBYROOMID_OK, roomContentList);
+        }catch(Exception e){
+            log.error(e.toString());
+            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.ROOMCONTENT_FINDBYROOMID_ERROR);
+        }
+    }
+    @PatchMapping(value="/update")
+    @ApiOperation(value = "객실 수정", notes = "객실 레이블을 수정한다.")
+    public DefaultResponse<String> roomContentUpdate(@RequestBody RoomContent.PatchReq roomContent){
         try {
             log.debug("roomContent = {}", roomContent.toString());
             Integer updatedCnt = roomContentService.updateById(roomContent);
-            return new ResponseEntity<>(String.format("%d updated", updatedCnt), HttpStatus.OK);
+            return new DefaultResponse<String>(Status.OK, ResponseMessage.ROOMCONTENT_UPDATE_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.ROOMCONTENT_UPDATE_ERROR);
         }
     }
-    @DeleteMapping(value="/delete/{roomContentId}")
-    @ApiOperation(value = "숙소정보 삭제", notes = "roomContentId를 받아서 숙소정보를 삭제한다.")
-    public ResponseEntity<String> roomContentDelete(@PathVariable Integer roomContentId){
+    @PatchMapping(value="/delete/{roomContentId}")
+    @ApiOperation(value = "객실 삭제", notes = "roomContentId를 받아서 객실를 삭제한다.")
+    public DefaultResponse<String> roomContentDelete(@PathVariable Integer roomContentId){
         try {
             log.debug("roomContent id = {}", roomContentId);
             Integer deletedCnt = roomContentService.deleteById(roomContentId);
-            return new ResponseEntity<>(String.format("%d deleted.", deletedCnt), HttpStatus.OK);
+            return new DefaultResponse<String>(Status.OK, ResponseMessage.ROOMCONTENT_DELETE_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.ROOMCONTENT_DELETE_ERROR);
         }
     }
 }

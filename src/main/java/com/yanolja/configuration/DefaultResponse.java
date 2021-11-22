@@ -10,21 +10,21 @@ import lombok.Data;
 /**
  * Response 정보를 담을 클래스
  */
-public class DefaultRes<T> {
+public class DefaultResponse<T> {
     private int statusCode;
     private String responseMessage;
     private T data;
 
-    public DefaultRes(final int statusCode, final String responseMessage){
+    public DefaultResponse(final int statusCode, final String responseMessage){
         this.statusCode = statusCode;
         this.responseMessage = responseMessage;
         this.data = null;
     }
-    public static<T> DefaultRes<T> res(final int statusCode, final String responseMessage){
+    public static<T> DefaultResponse<T> res(final int statusCode, final String responseMessage){
         return res(statusCode, responseMessage, null);
     }
-    public static<T> DefaultRes<T> res(final int statusCode, final String responseMessage, final T t) {
-        return DefaultRes.<T>builder().
+    public static<T> DefaultResponse<T> res(final int statusCode, final String responseMessage, final T t) {
+        return DefaultResponse.<T>builder().
                 data(t).statusCode(statusCode).responseMessage(responseMessage).build();
     }
 }

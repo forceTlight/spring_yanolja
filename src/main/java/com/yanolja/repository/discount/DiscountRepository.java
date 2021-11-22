@@ -1,6 +1,6 @@
 package com.yanolja.repository.discount;
 
-import com.yanolja.domain.DiscountDTO;
+import com.yanolja.domain.Discount;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -24,7 +24,7 @@ public class DiscountRepository {
 
 
     // Discount 레코드 추가
-    public DiscountDTO insert(DiscountDTO discount) {
+    public Discount insert(Discount discount) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         SqlParameterSource parameterSource = new MapSqlParameterSource("lodgeId", discount.getLodgeId())
                 .addValue("rentId", discount.getRentId())
@@ -38,7 +38,7 @@ public class DiscountRepository {
         return discount;
     }
     // discountId를 사용해 레코드 업데이트
-    public Integer updateById(DiscountDTO discount) {
+    public Integer updateById(Discount discount) {
         String qry = DiscountSql.UPDATE;
         SqlParameterSource parameterSource = new MapSqlParameterSource("discountId", discount.getDiscountId())
                 .addValue("discountNum", discount.getDiscountNum())
@@ -52,16 +52,16 @@ public class DiscountRepository {
         return namedParameterJdbcTemplate.update(DiscountSql.DELETE, parameterSource);
     }
     // discountId로 DiscountDTO 반환
-    public DiscountDTO findById(Integer id) {
+    public Discount findById(Integer id) {
         SqlParameterSource parameterSource = new MapSqlParameterSource("discountId", id);
         return namedParameterJdbcTemplate.queryForObject(DiscountSql.SELECT, parameterSource,
                 new DiscountRepository.discountMapper());
     }
     // queryForObject 수행시 Object 리턴해주기 위한 클래스
-    private static final class discountMapper implements RowMapper<DiscountDTO> {
+    private static final class discountMapper implements RowMapper<Discount> {
         @Override
-        public DiscountDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-            DiscountDTO discount = new DiscountDTO();
+        public Discount mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Discount discount = new Discount();
             discount.setDiscountId(rs.getInt("discountId"));
             discount.setLodgeId(rs.getInt("lodgeId"));
             discount.setRentId(rs.getInt("rentId"));

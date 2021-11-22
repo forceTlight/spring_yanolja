@@ -23,11 +23,13 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jdbc:2.5.5'
     implementation 'org.springframework.boot:spring-boot-starter-jdbc:2.5.5'
     implementation 'org.springframework.boot:spring-boot-starter-web:2.5.6'
+    implementation 'io.jsonwebtoken:jjwt:0.9.1'
     compileOnly 'org.projectlombok:lombok:1.18.22'
     developmentOnly 'org.springframework.boot:spring-boot-devtools:2.5.5'
     runtimeOnly 'mysql:mysql-connector-java:8.0.25'
     annotationProcessor 'org.projectlombok:lombok:1.18.22'
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.5.6'
+    implementation 'javax.xml.bind:jaxb-api:2.3.0-b170201.1204'
     // slf4j & logback
     implementation('org.slf4j:jcl-over-slf4j:1.7.32')
     implementation('ch.qos.logback:logback-classic:1.2.6')

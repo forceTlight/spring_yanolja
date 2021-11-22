@@ -156,7 +156,7 @@ public class YanoljaApplication {
                 .append("createDate TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,")
                 .append("updateDate TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,")
                 .append("PRIMARY KEY(rentId),")
-                .append("FOREIGN KEY (roomContentId) REFERENCES room (roomContentId));")
+                .append("FOREIGN KEY (roomContentId) REFERENCES roomContent (roomContentId));")
                 .toString();
         stmt.execute(sql);
         System.out.println("rent 테이블이 생성되었습니다!");

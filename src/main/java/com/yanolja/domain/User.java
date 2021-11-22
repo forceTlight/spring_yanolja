@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
  * 유저의 정보를 담고있는 DTO
  */
 
-public class UserDTO {
+public class User {
 	// 유저 기본정보
 	@Data
 	@AllArgsConstructor
@@ -50,6 +50,7 @@ public class UserDTO {
 	@Builder
 	public static class LoginRes{
 		private int userId;
+		private String email;
 	}
 	// 닉네임 수정 REQUEST DTO
 	@Data

@@ -1,6 +1,6 @@
 package com.yanolja.service;
 
-import com.yanolja.domain.RoomDTO;
+import com.yanolja.domain.Room;
 import com.yanolja.repository.room.RoomRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +13,10 @@ import java.util.List;
 public class RoomService {
     @Autowired
     private RoomRepository roomRepository;
-    public RoomDTO.RegisterReq insert(RoomDTO.RegisterReq room) {
+    public Room.RegisterReq insert(Room.RegisterReq room) {
         return roomRepository.insert(room);
     }
-    public Integer updateById(RoomDTO.PatchReq room) {
+    public Integer updateById(Room.PatchRoomReq room) {
         log.debug("room Id = {}", room.getRoomId());
         return roomRepository.updateById(room);
     }
@@ -24,8 +24,13 @@ public class RoomService {
         log.debug("room id = {}", id);
         return roomRepository.deleteById(id);
     }
-    public List<RoomDTO.Info> findByName(String name){
+    public List<Room.Info> findByName(String name){
         log.debug("room Name = {}", name);
         return roomRepository.findByName(name);
     }
+    public int countRoom(){
+
+    }
+
+    public List<Room.Info> paigingRoom()
 }

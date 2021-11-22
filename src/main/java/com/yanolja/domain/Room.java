@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-public class RoomDTO {
+public class Room {
     // 유저 기본정보
     @Data
     @AllArgsConstructor
@@ -23,17 +23,17 @@ public class RoomDTO {
         private String businessNumber;
         private String service; // 편의시설 및 서비스 내용을 담고있는 변수
         private String information; // 이용안내 내용을 담고있는 변수 !->bold, ','->줄바꿈
-        private String deleteYN;
     }
     // 숙소 등록 REQUEST DTO
     @Data
     public static class RegisterReq{
+        private int roomId;
         private int ownerId;
         private String roomType;
         private String name;
         private String phoneNumber;
         private String location;
-        private String ImgUrl;
+        private String imgUrl;
         private String businessNumber;
         private String service;
         private String information;
@@ -52,7 +52,7 @@ public class RoomDTO {
     // 숙소 정보 수정 REQUEST DTO
     @Data
     @Builder
-    public static class PatchReq{
+    public static class PatchRoomReq{
         private int roomId;
         private String roomType;
         private String name;
@@ -63,4 +63,5 @@ public class RoomDTO {
         private String service;
         private String information;
     }
+
 }

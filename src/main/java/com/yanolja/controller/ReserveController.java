@@ -1,6 +1,6 @@
 package com.yanolja.controller;
 
-import com.yanolja.domain.ReserveDTO;
+import com.yanolja.domain.Reserve;
 import com.yanolja.service.ReserveService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ public class ReserveController {
 
     @PostMapping(value="/register")
     @ApiOperation(value = "예약 등록", notes = "예약을 새로 등록함.")
-    public ResponseEntity<ReserveDTO> reserveCreate(@RequestBody ReserveDTO reserve){
+    public ResponseEntity<Reserve> reserveCreate(@RequestBody Reserve reserve){
         try {
             log.debug("reserve = {}", reserve.toString());
             return new ResponseEntity<>(reserveService.insert(reserve), HttpStatus.OK);
@@ -29,10 +29,10 @@ public class ReserveController {
     }
     @GetMapping(value="/find/{reserveId}")
     @ApiOperation(value = "예약 상세조회", notes = "reserveId로 예약을 조회함.")
-    public ResponseEntity<ReserveDTO> reserveFindById(@PathVariable Integer reserveId){
+    public ResponseEntity<Reserve> reserveFindById(@PathVariable Integer reserveId){
         try{
             log.debug("reserve = {}", reserveId);
-            ReserveDTO reserve = reserveService.findById(reserveId);
+            Reserve reserve = reserveService.findById(reserveId);
             return new ResponseEntity<>(reserveService.findById(reserveId), HttpStatus.OK);
         }catch(Exception e){
             log.error(e.toString());
@@ -41,7 +41,7 @@ public class ReserveController {
     }
     @PutMapping(value="/update")
     @ApiOperation(value = "예약 수정", notes = "예약 레이블을 수정한다.")
-    public ResponseEntity<String> reserveUpdate(@RequestBody ReserveDTO reserve){
+    public ResponseEntity<String> reserveUpdate(@RequestBody Reserve reserve){
         try {
             log.debug("reserve = {}", reserve.toString());
             Integer updatedCnt = reserveService.updateById(reserve);

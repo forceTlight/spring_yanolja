@@ -1,12 +1,13 @@
 package com.yanolja.controller;
 
-import com.yanolja.domain.LodgeDTO;
+import com.yanolja.configuration.DefaultResponse;
+import com.yanolja.configuration.ResponseMessage;
+import com.yanolja.configuration.Status;
+import com.yanolja.domain.Lodge;
 import com.yanolja.service.LodgeService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -18,49 +19,60 @@ public class LodgeController {
 
     @PostMapping(value="/register")
     @ApiOperation(value = "숙박등록", notes = "숙박을 새로 등록함.")
-    public ResponseEntity<LodgeDTO> lodgeCreate(@RequestBody LodgeDTO lodge){
+    public DefaultResponse<String> lodgeCreate(@RequestBody Lodge lodge){
         try {
             log.debug("lodge = {}", lodge.toString());
-            return new ResponseEntity<>(lodgeService.insert(lodge), HttpStatus.OK);
+            return new DefaultResponse<String>(Status.CREATED, ResponseMessage.LODGE_REGISTER_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.LODGE_REGISTER_ERROR);
         }
     }
     @GetMapping(value="/find/{lodgeId}")
     @ApiOperation(value = "숙박상세조회", notes = "lodgeId로 숙박을 조회함.")
-    public ResponseEntity<LodgeDTO> lodgeFindById(@PathVariable Integer lodgeId){
+    public DefaultResponse<Lodge.Info> lodgeFindById(@PathVariable Integer lodgeId){
         try{
             log.debug("lodge = {}", lodgeId);
-            LodgeDTO lodge = lodgeService.findById(lodgeId);
-            return new ResponseEntity<>(lodgeService.findById(lodgeId), HttpStatus.OK);
+            Lodge.Info lodge = lodgeService.findById(lodgeId);
+            return new DefaultResponse<Lodge.Info>(Status.OK, ResponseMessage.LODGE_FIND_OK, lodge);
         }catch(Exception e){
             log.error(e.toString());
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.LODGE_FIND_ERROR);
+        }
+    }
+    @GetMapping(value="/load/{roomContentId}")
+    @ApiOperation(value = "숙박정보 불러오기", notes = "roomContentId로 숙박을 조회함.")
+    public DefaultResponse<Lodge.Info> lodgeFindByRoomContentId(@PathVariable Integer roomContentId){
+        try{
+            Lodge.Info lodge = lodgeService.findByRoomContentId(roomContentId);
+            return new DefaultResponse<Lodge.Info>(Status.OK, ResponseMessage.LODGE_FIND_OK, lodge);
+        }catch(Exception e){
+            log.error(e.toString());
+            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.LODGE_FIND_ERROR);
         }
     }
     @PutMapping(value="/update")
     @ApiOperation(value = "숙박수정", notes = "숙박 레이블을 수정한다.")
-    public ResponseEntity<String> lodgeUpdate(@RequestBody LodgeDTO lodge){
+    public DefaultResponse<String> lodgeUpdate(@RequestBody Lodge.PatchReq lodge){
         try {
             log.debug("lodge = {}", lodge.toString());
             Integer updatedCnt = lodgeService.updateById(lodge);
-            return new ResponseEntity<>(String.format("%d updated", updatedCnt), HttpStatus.OK);
+            return new DefaultResponse<String>(Status.OK, ResponseMessage.LODGE_UPDATE_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.LODGE_UPDATE_ERROR);
         }
     }
     @DeleteMapping(value="/delete/{lodgeId}")
     @ApiOperation(value = "숙박삭제", notes = "lodgeId를 받아서 숙박을 삭제한다.")
-    public ResponseEntity<String> lodgeDelete(@PathVariable Integer lodgeId){
+    public DefaultResponse<String> lodgeDelete(@PathVariable Integer lodgeId){
         try {
             log.debug("lodge id = {}", lodgeId);
             Integer deletedCnt = lodgeService.deleteById(lodgeId);
-            return new ResponseEntity<>(String.format("%d deleted.", deletedCnt), HttpStatus.OK);
+            return new DefaultResponse<>(Status.OK, ResponseMessage.LODGE_DELETE_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.LODGE_DELETE_ERROR);
         }
     }
 }

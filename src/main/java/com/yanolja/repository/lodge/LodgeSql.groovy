@@ -16,4 +16,7 @@ class LodgeSql {
     public static final String DELETE = """
 			UPDATE lodge SET deleteYN = 'Y' WHERE lodgeId = :lodgeId
             """;
+    public static final String FINDBYROOMCONTENTID = """
+			SELECT * from lodge where roomContentId = :roomContentId
+            """;
 }

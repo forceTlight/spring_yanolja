@@ -1,6 +1,6 @@
 package com.yanolja.controller;
 
-import com.yanolja.domain.DiscountDTO;
+import com.yanolja.domain.Discount;
 import com.yanolja.service.DiscountService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ public class DiscountController {
 
     @PostMapping(value="/register")
     @ApiOperation(value = "할인등록", notes = "할인을 새로 등록함.")
-    public ResponseEntity<DiscountDTO> discountCreate(@RequestBody DiscountDTO discount){
+    public ResponseEntity<Discount> discountCreate(@RequestBody Discount discount){
         try {
             log.debug("discount = {}", discount.toString());
             return new ResponseEntity<>(discountService.insert(discount), HttpStatus.OK);
@@ -29,10 +29,10 @@ public class DiscountController {
     }
     @GetMapping(value="/find/{discountId}")
     @ApiOperation(value = "할인상세조회", notes = "discountId로 할인을 조회함.")
-    public ResponseEntity<DiscountDTO> discountFindById(@PathVariable Integer discountId){
+    public ResponseEntity<Discount> discountFindById(@PathVariable Integer discountId){
         try{
             log.debug("discount = {}", discountId);
-            DiscountDTO discount = discountService.findById(discountId);
+            Discount discount = discountService.findById(discountId);
             return new ResponseEntity<>(discountService.findById(discountId), HttpStatus.OK);
         }catch(Exception e){
             log.error(e.toString());
@@ -41,7 +41,7 @@ public class DiscountController {
     }
     @PutMapping(value="/update")
     @ApiOperation(value = "할인수정", notes = "할인 레이블을 수정한다.")
-    public ResponseEntity<String> discountUpdate(@RequestBody DiscountDTO discount){
+    public ResponseEntity<String> discountUpdate(@RequestBody Discount discount){
         try {
             log.debug("discount = {}", discount.toString());
             Integer updatedCnt = discountService.updateById(discount);

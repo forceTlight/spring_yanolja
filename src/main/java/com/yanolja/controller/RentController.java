@@ -1,12 +1,13 @@
 package com.yanolja.controller;
 
-import com.yanolja.domain.RentDTO;
+import com.yanolja.configuration.DefaultResponse;
+import com.yanolja.configuration.ResponseMessage;
+import com.yanolja.configuration.Status;
+import com.yanolja.domain.Rent;
 import com.yanolja.service.RentService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -18,49 +19,61 @@ public class RentController {
 
     @PostMapping(value="/register")
     @ApiOperation(value = "대실등록", notes = "대실을 새로 등록함.")
-    public ResponseEntity<RentDTO> rentCreate(@RequestBody RentDTO rent){
+    public DefaultResponse<String> rentCreate(@RequestBody Rent.RegisterReq rent){
         try {
             log.debug("rent = {}", rent.toString());
-            return new ResponseEntity<>(rentService.insert(rent), HttpStatus.OK);
+            rentService.insert(rent);
+            return new DefaultResponse<String>(Status.CREATED, ResponseMessage.RENT_REGISTER_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultResponse<>(Status.BAD_REQUEST, ResponseMessage.RENT_REGISTER_ERROR);
         }
     }
     @GetMapping(value="/find/{rentId}")
     @ApiOperation(value = "대실 상세조회", notes = "rentId로 대실을 조회함.")
-    public ResponseEntity<RentDTO> rentFindById(@PathVariable Integer rentId){
+    public DefaultResponse<Rent.Info> rentFindById(@PathVariable Integer rentId){
         try{
             log.debug("rent = {}", rentId);
-            RentDTO rent = rentService.findById(rentId);
-            return new ResponseEntity<>(rentService.findById(rentId), HttpStatus.OK);
+            Rent.Info rent = rentService.findById(rentId);
+            return new DefaultResponse<Rent.Info>(Status.OK, ResponseMessage.RENT_FIND_OK);
         }catch(Exception e){
             log.error(e.toString());
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultResponse<>(Status.BAD_REQUEST, ResponseMessage.RENT_FIND_ERROR);
+        }
+    }
+    @GetMapping(value="/load/{roomContentId}")
+    @ApiOperation(value = "대실 불러오기", notes = "roomContentId로 대실을 조회함.")
+    public DefaultResponse<Rent.Info> rentFindByRoomContentId(@PathVariable Integer roomContentId){
+        try{
+            Rent.Info rent = rentService.findByRoomContentId(roomContentId);
+            return new DefaultResponse<Rent.Info>(Status.OK, ResponseMessage.RENT_FIND_OK);
+        }catch(Exception e){
+            log.error(e.toString());
+            return new DefaultResponse<>(Status.BAD_REQUEST, ResponseMessage.RENT_FIND_ERROR);
         }
     }
     @PutMapping(value="/update")
     @ApiOperation(value = "대실 수정", notes = "대실 레이블을 수정한다.")
-    public ResponseEntity<String> rentUpdate(@RequestBody RentDTO rent){
+    public DefaultResponse<String> rentUpdate(@RequestBody Rent.PatchReq rent){
         try {
             log.debug("rent = {}", rent.toString());
             Integer updatedCnt = rentService.updateById(rent);
-            return new ResponseEntity<>(String.format("%d updated", updatedCnt), HttpStatus.OK);
+            return new DefaultResponse<String>(Status.OK, ResponseMessage.RENT_FIND_ERROR);
         }catch(Exception e) {
             log.error(e.toString());
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultResponse<>(Status.BAD_REQUEST, ResponseMessage.RENT_FIND_ERROR);
         }
     }
     @DeleteMapping(value="/delete/{rentId}")
     @ApiOperation(value = "대실 삭제", notes = "rentId를 받아서 대실을 삭제한다.")
-    public ResponseEntity<String> rentDelete(@PathVariable Integer rentId){
+    public DefaultResponse<String> rentDelete(@PathVariable Integer rentId){
         try {
             log.debug("rent id = {}", rentId);
             Integer deletedCnt = rentService.deleteById(rentId);
-            return new ResponseEntity<>(String.format("%d deleted.", deletedCnt), HttpStatus.OK);
+            return new DefaultResponse<String>(Status.OK, ResponseMessage.RENT_DELETE_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            return new DefaultResponse<>(Status.BAD_REQUEST, ResponseMessage.RENT_DELETE_ERROR);
         }
     }
 }

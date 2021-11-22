@@ -16,4 +16,7 @@ class RentSql {
     public static final String DELETE = """
 			UPDATE rent SET deleteYN = 'Y' WHERE rentId = :rentId
             """;
+    public static final String FINDBYROOMCONTENTID = """
+			SELECT * from rent where roomContentId = :roomContentId
+            """;
 }

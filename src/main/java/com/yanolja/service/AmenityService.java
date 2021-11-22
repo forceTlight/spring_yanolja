@@ -1,6 +1,6 @@
 package com.yanolja.service;
 
-import com.yanolja.domain.AmenityDTO;
+import com.yanolja.domain.Amenity;
 import com.yanolja.repository.amenity.AmenityRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 public class AmenityService {
     @Autowired
     private AmenityRepository amenityRepository;
-    public AmenityDTO insert(AmenityDTO amenity) {
+    public Amenity insert(Amenity amenity) {
         return amenityRepository.insert(amenity);
     }
-    public Integer updateById(AmenityDTO amenity) {
+    public Integer updateById(Amenity amenity) {
         log.debug("amenity Id = {}", amenity.getAmenityId());
         return amenityRepository.updateById(amenity);
     }
@@ -22,7 +22,7 @@ public class AmenityService {
         log.debug("amenity id = {}", id);
         return amenityRepository.deleteById(id);
     }
-    public AmenityDTO findById(Integer id){
+    public Amenity findById(Integer id){
         log.debug("amenity Id = {}", id);
         return amenityRepository.findById(id);
     }

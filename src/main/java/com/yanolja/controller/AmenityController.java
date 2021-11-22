@@ -1,6 +1,6 @@
 package com.yanolja.controller;
 
-import com.yanolja.domain.AmenityDTO;
+import com.yanolja.domain.Amenity;
 import com.yanolja.service.AmenityService;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ public class AmenityController {
 
     @PostMapping(value="/register")
     @ApiOperation(value = "편의시설 등록", notes = "편의시설을 새로 등록함.")
-    public ResponseEntity<AmenityDTO> amenityCreate(@RequestBody AmenityDTO amenity){
+    public ResponseEntity<Amenity> amenityCreate(@RequestBody Amenity amenity){
         try {
             log.debug("amenity = {}", amenity.toString());
             return new ResponseEntity<>(amenityService.insert(amenity), HttpStatus.OK);
@@ -29,10 +29,10 @@ public class AmenityController {
     }
     @GetMapping(value="/find/{amenityId}")
     @ApiOperation(value = "편의시설 상세조회", notes = "amenityId로 편의시설을 조회함.")
-    public ResponseEntity<AmenityDTO> amenityFindById(@PathVariable Integer amenityId){
+    public ResponseEntity<Amenity> amenityFindById(@PathVariable Integer amenityId){
         try{
             log.debug("amenity = {}", amenityId);
-            AmenityDTO amenity = amenityService.findById(amenityId);
+            Amenity amenity = amenityService.findById(amenityId);
             return new ResponseEntity<>(amenityService.findById(amenityId), HttpStatus.OK);
         }catch(Exception e){
             log.error(e.toString());
@@ -41,7 +41,7 @@ public class AmenityController {
     }
     @PutMapping(value="/update")
     @ApiOperation(value = "편의시설 수정", notes = "편의시설 레이블을 수정한다.")
-    public ResponseEntity<String> amenityUpdate(@RequestBody AmenityDTO amenity){
+    public ResponseEntity<String> amenityUpdate(@RequestBody Amenity amenity){
         try {
             log.debug("amenity = {}", amenity.toString());
             Integer updatedCnt = amenityService.updateById(amenity);

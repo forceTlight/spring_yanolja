@@ -1,6 +1,6 @@
 package com.yanolja.repository.reserve;
 
-import com.yanolja.domain.ReserveDTO;
+import com.yanolja.domain.Reserve;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -23,7 +23,7 @@ public class ReserveRepository {
     }
 
     // Reserve 레코드 추가
-    public ReserveDTO insert(ReserveDTO reserve) {
+    public Reserve insert(Reserve reserve) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         SqlParameterSource parameterSource = new MapSqlParameterSource("userId", reserve.getUserId())
                 .addValue("roomId", reserve.getRoomId())
@@ -41,7 +41,7 @@ public class ReserveRepository {
         return reserve;
     }
     // reserveId를 사용해 레코드 업데이트
-    public Integer updateById(ReserveDTO reserve) {
+    public Integer updateById(Reserve reserve) {
         String qry = ReserveSql.UPDATE;
         SqlParameterSource parameterSource = new MapSqlParameterSource("reserveId", reserve.getReserveId())
                 .addValue("visitDate", reserve.getVisitDate())
@@ -59,16 +59,16 @@ public class ReserveRepository {
         return namedParameterJdbcTemplate.update(ReserveSql.DELETE, parameterSource);
     }
     // reserveId로 ReserveDTO 반환
-    public ReserveDTO findById(Integer id) {
+    public Reserve findById(Integer id) {
         SqlParameterSource parameterSource = new MapSqlParameterSource("reserveId", id);
         return namedParameterJdbcTemplate.queryForObject(ReserveSql.SELECT, parameterSource,
                 new ReserveRepository.reserveMapper());
     }
     // queryForObject 수행시 Object 리턴해주기 위한 클래스
-    private static final class reserveMapper implements RowMapper<ReserveDTO> {
+    private static final class reserveMapper implements RowMapper<Reserve> {
         @Override
-        public ReserveDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-            ReserveDTO reserve = new ReserveDTO();
+        public Reserve mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Reserve reserve = new Reserve();
             reserve.setReserveId(rs.getInt("reserveId"));
             reserve.setUserId(rs.getInt("userId"));
             reserve.setVisitDate(rs.getString("visitDate"));

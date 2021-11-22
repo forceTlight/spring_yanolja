@@ -1,6 +1,6 @@
 package com.yanolja.service;
 
-import com.yanolja.domain.DiscountDTO;
+import com.yanolja.domain.Discount;
 import com.yanolja.repository.discount.DiscountRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 public class DiscountService {
     @Autowired
     private DiscountRepository discountRepository;
-    public DiscountDTO insert(DiscountDTO discount) {
+    public Discount insert(Discount discount) {
         return discountRepository.insert(discount);
     }
-    public Integer updateById(DiscountDTO discount) {
+    public Integer updateById(Discount discount) {
         log.debug("discount Id = {}", discount.getDiscountId());
         return discountRepository.updateById(discount);
     }
@@ -22,7 +22,7 @@ public class DiscountService {
         log.debug("discount id = {}", id);
         return discountRepository.deleteById(id);
     }
-    public DiscountDTO findById(Integer id){
+    public Discount findById(Integer id){
         log.debug("discount Id = {}", id);
         return discountRepository.findById(id);
     }
