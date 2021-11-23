@@ -2,7 +2,7 @@ package com.yanolja.controller;
 
 import com.yanolja.configuration.DefaultResponse;
 import com.yanolja.configuration.ResponseMessage;
-import com.yanolja.configuration.Status;
+import com.yanolja.configuration.StatusCode;
 import com.yanolja.domain.Lodge;
 import com.yanolja.service.LodgeService;
 import io.swagger.annotations.ApiOperation;
@@ -22,10 +22,10 @@ public class LodgeController {
     public DefaultResponse<String> lodgeCreate(@RequestBody Lodge lodge){
         try {
             log.debug("lodge = {}", lodge.toString());
-            return new DefaultResponse<String>(Status.CREATED, ResponseMessage.LODGE_REGISTER_OK);
+            return new DefaultResponse<String>(StatusCode.CREATED, ResponseMessage.LODGE_REGISTER_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.LODGE_REGISTER_ERROR);
+            return new DefaultResponse<>(StatusCode.DB_ERROR, ResponseMessage.LODGE_REGISTER_ERROR);
         }
     }
     @GetMapping(value="/find/{lodgeId}")
@@ -34,10 +34,10 @@ public class LodgeController {
         try{
             log.debug("lodge = {}", lodgeId);
             Lodge.Info lodge = lodgeService.findById(lodgeId);
-            return new DefaultResponse<Lodge.Info>(Status.OK, ResponseMessage.LODGE_FIND_OK, lodge);
+            return new DefaultResponse<Lodge.Info>(StatusCode.OK, ResponseMessage.LODGE_FIND_OK, lodge);
         }catch(Exception e){
             log.error(e.toString());
-            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.LODGE_FIND_ERROR);
+            return new DefaultResponse<>(StatusCode.DB_ERROR, ResponseMessage.LODGE_FIND_ERROR);
         }
     }
     @GetMapping(value="/load/{roomContentId}")
@@ -45,10 +45,10 @@ public class LodgeController {
     public DefaultResponse<Lodge.Info> lodgeFindByRoomContentId(@PathVariable Integer roomContentId){
         try{
             Lodge.Info lodge = lodgeService.findByRoomContentId(roomContentId);
-            return new DefaultResponse<Lodge.Info>(Status.OK, ResponseMessage.LODGE_FIND_OK, lodge);
+            return new DefaultResponse<Lodge.Info>(StatusCode.OK, ResponseMessage.LODGE_FIND_OK, lodge);
         }catch(Exception e){
             log.error(e.toString());
-            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.LODGE_FIND_ERROR);
+            return new DefaultResponse<>(StatusCode.DB_ERROR, ResponseMessage.LODGE_FIND_ERROR);
         }
     }
     @PutMapping(value="/update")
@@ -57,10 +57,10 @@ public class LodgeController {
         try {
             log.debug("lodge = {}", lodge.toString());
             Integer updatedCnt = lodgeService.updateById(lodge);
-            return new DefaultResponse<String>(Status.OK, ResponseMessage.LODGE_UPDATE_OK);
+            return new DefaultResponse<String>(StatusCode.OK, ResponseMessage.LODGE_UPDATE_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.LODGE_UPDATE_ERROR);
+            return new DefaultResponse<>(StatusCode.DB_ERROR, ResponseMessage.LODGE_UPDATE_ERROR);
         }
     }
     @DeleteMapping(value="/delete/{lodgeId}")
@@ -69,10 +69,10 @@ public class LodgeController {
         try {
             log.debug("lodge id = {}", lodgeId);
             Integer deletedCnt = lodgeService.deleteById(lodgeId);
-            return new DefaultResponse<>(Status.OK, ResponseMessage.LODGE_DELETE_OK);
+            return new DefaultResponse<>(StatusCode.OK, ResponseMessage.LODGE_DELETE_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.LODGE_DELETE_ERROR);
+            return new DefaultResponse<>(StatusCode.DB_ERROR, ResponseMessage.LODGE_DELETE_ERROR);
         }
     }
 }

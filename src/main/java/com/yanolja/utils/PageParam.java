@@ -16,13 +16,11 @@ public class PageParam {
     }
 
     public void setAmount(int amount) {
-        log.warn("setAmount");
         this.amount = amount;
         this.start = (page-1)*amount;
     }
 
     public void setPage(int page) {
-        log.warn("setPage");
         this.page = page;
         this.start = (page-1)*amount;
     }

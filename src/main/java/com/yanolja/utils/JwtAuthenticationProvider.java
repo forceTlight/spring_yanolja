@@ -2,16 +2,14 @@ package com.yanolja.utils;
 
 import com.yanolja.configuration.DefaultException;
 import com.yanolja.configuration.ResponseMessage;
-import com.yanolja.configuration.Status;
+import com.yanolja.configuration.StatusCode;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Component;
-import org.springframework.web.util.WebUtils;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
@@ -42,12 +40,12 @@ public class JwtAuthenticationProvider {
         String email;
         // 토큰이 비었을 때 예외 처리
         if(token == null || token.length() == 0){
-            throw new DefaultException(ResponseMessage.EMPTY_JWT, Status.JWT_ERROR);
+            throw new DefaultException(ResponseMessage.EMPTY_JWT, StatusCode.JWT_ERROR);
         }
         try{
             email = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
         }catch(Exception e){
-            throw new DefaultException(ResponseMessage.INVALID_JWT, Status.JWT_ERROR);
+            throw new DefaultException(ResponseMessage.INVALID_JWT, StatusCode.JWT_ERROR);
         }
         return email;
     }
@@ -55,8 +53,10 @@ public class JwtAuthenticationProvider {
     // Request의 Header에서 token 값을 가져옵니다. "X-AUTH-TOKEN" : "TOKEN값'
     public String resolveToken(HttpServletRequest request) {
         String token = null;
-        Cookie cookie = WebUtils.getCookie(request, "X-AUTH-TOKEN");
-        if(cookie != null) token = cookie.getValue();
+        String auth_token = request.getHeader("X-AUTH-TOKEN");
+        if(auth_token != null){
+            token = auth_token;
+        }
         return token;
     }
 

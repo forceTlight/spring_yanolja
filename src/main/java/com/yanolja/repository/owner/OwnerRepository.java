@@ -2,6 +2,7 @@ package com.yanolja.repository.owner;
 
 import com.yanolja.domain.Owner;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -26,6 +27,7 @@ public class OwnerRepository {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         SqlParameterSource parameterSource = new MapSqlParameterSource("name", owner.getName())
                 .addValue("email", owner.getEmail())
+                .addValue("nickName", owner.getNickName())
                 .addValue("password", owner.getPassword())
                 .addValue("phoneNumber", owner.getPhoneNumber())
                 .addValue("deleteYN", "N");
@@ -37,7 +39,7 @@ public class OwnerRepository {
     public Integer updateById(Owner.PatchReq owner) {
         String qry = OwnerSql.UPDATE;
         SqlParameterSource parameterSource = new MapSqlParameterSource("ownerId", owner.getOwnerId())
-                .addValue("name", owner.getName());
+                .addValue("nickName", owner.getNickName());
         return namedParameterJdbcTemplate.update(qry, parameterSource);
     }
     // OwnerId를 사용해 Owner 레코드 제거
@@ -54,7 +56,11 @@ public class OwnerRepository {
 
     public Owner.Info findByEmail(String email) {
         SqlParameterSource parameterSource = new MapSqlParameterSource("email", email);
-        return namedParameterJdbcTemplate.queryForObject(OwnerSql.FIND_BY_EMAIL, parameterSource, new OwnerRepository.OwnerMapper());
+        try {
+            return namedParameterJdbcTemplate.queryForObject(OwnerSql.FIND_BY_EMAIL, parameterSource, new OwnerMapper());
+        }catch(EmptyResultDataAccessException e){
+            return null;
+        }
     }
 
     // queryForObject 수행시 Owner 리턴해주기 위한 클래스
@@ -65,6 +71,7 @@ public class OwnerRepository {
             owner.setOwnerId(rs.getInt("ownerId"));
             owner.setEmail(rs.getString("email"));
             owner.setName(rs.getString("name"));
+            owner.setNickName(rs.getString("nickName"));
             owner.setPassword(rs.getString("password"));
             owner.setPhoneNumber(rs.getString("phoneNumber"));
             owner.setDeleteYN(rs.getString("deleteYN"));

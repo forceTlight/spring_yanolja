@@ -2,7 +2,7 @@ package com.yanolja.controller;
 
 import com.yanolja.configuration.DefaultResponse;
 import com.yanolja.configuration.ResponseMessage;
-import com.yanolja.configuration.Status;
+import com.yanolja.configuration.StatusCode;
 import com.yanolja.domain.Rent;
 import com.yanolja.service.RentService;
 import io.swagger.annotations.ApiOperation;
@@ -23,10 +23,10 @@ public class RentController {
         try {
             log.debug("rent = {}", rent.toString());
             rentService.insert(rent);
-            return new DefaultResponse<String>(Status.CREATED, ResponseMessage.RENT_REGISTER_OK);
+            return new DefaultResponse<String>(StatusCode.CREATED, ResponseMessage.RENT_REGISTER_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new DefaultResponse<>(Status.BAD_REQUEST, ResponseMessage.RENT_REGISTER_ERROR);
+            return new DefaultResponse<>(StatusCode.BAD_REQUEST, ResponseMessage.RENT_REGISTER_ERROR);
         }
     }
     @GetMapping(value="/find/{rentId}")
@@ -35,10 +35,10 @@ public class RentController {
         try{
             log.debug("rent = {}", rentId);
             Rent.Info rent = rentService.findById(rentId);
-            return new DefaultResponse<Rent.Info>(Status.OK, ResponseMessage.RENT_FIND_OK);
+            return new DefaultResponse<Rent.Info>(StatusCode.OK, ResponseMessage.RENT_FIND_OK);
         }catch(Exception e){
             log.error(e.toString());
-            return new DefaultResponse<>(Status.BAD_REQUEST, ResponseMessage.RENT_FIND_ERROR);
+            return new DefaultResponse<>(StatusCode.BAD_REQUEST, ResponseMessage.RENT_FIND_ERROR);
         }
     }
     @GetMapping(value="/load/{roomContentId}")
@@ -46,10 +46,10 @@ public class RentController {
     public DefaultResponse<Rent.Info> rentFindByRoomContentId(@PathVariable Integer roomContentId){
         try{
             Rent.Info rent = rentService.findByRoomContentId(roomContentId);
-            return new DefaultResponse<Rent.Info>(Status.OK, ResponseMessage.RENT_FIND_OK);
+            return new DefaultResponse<Rent.Info>(StatusCode.OK, ResponseMessage.RENT_FIND_OK);
         }catch(Exception e){
             log.error(e.toString());
-            return new DefaultResponse<>(Status.BAD_REQUEST, ResponseMessage.RENT_FIND_ERROR);
+            return new DefaultResponse<>(StatusCode.BAD_REQUEST, ResponseMessage.RENT_FIND_ERROR);
         }
     }
     @PutMapping(value="/update")
@@ -58,10 +58,10 @@ public class RentController {
         try {
             log.debug("rent = {}", rent.toString());
             Integer updatedCnt = rentService.updateById(rent);
-            return new DefaultResponse<String>(Status.OK, ResponseMessage.RENT_FIND_ERROR);
+            return new DefaultResponse<String>(StatusCode.OK, ResponseMessage.RENT_FIND_ERROR);
         }catch(Exception e) {
             log.error(e.toString());
-            return new DefaultResponse<>(Status.BAD_REQUEST, ResponseMessage.RENT_FIND_ERROR);
+            return new DefaultResponse<>(StatusCode.BAD_REQUEST, ResponseMessage.RENT_FIND_ERROR);
         }
     }
     @DeleteMapping(value="/delete/{rentId}")
@@ -70,10 +70,10 @@ public class RentController {
         try {
             log.debug("rent id = {}", rentId);
             Integer deletedCnt = rentService.deleteById(rentId);
-            return new DefaultResponse<String>(Status.OK, ResponseMessage.RENT_DELETE_OK);
+            return new DefaultResponse<String>(StatusCode.OK, ResponseMessage.RENT_DELETE_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new DefaultResponse<>(Status.BAD_REQUEST, ResponseMessage.RENT_DELETE_ERROR);
+            return new DefaultResponse<>(StatusCode.BAD_REQUEST, ResponseMessage.RENT_DELETE_ERROR);
         }
     }
 }

@@ -66,6 +66,7 @@ public class RoomRepository {
         SqlParameterSource parameterSource = new MapSqlParameterSource("name", "%"+name+"%");
         return namedParameterJdbcTemplate.query(RoomSql.FIND_BY_NAME,parameterSource, new roomMapper());
     }
+    /* // 페이징 (임시 주석처리)
     public List<Room.Info> paigingRoom(int pageStart, int perPageNum){
         SqlParameterSource parameterSource = new MapSqlParameterSource("pageStart", pageStart)
                 .addValue("perPageNum", perPageNum);
@@ -80,7 +81,7 @@ public class RoomRepository {
     public List<Room.Info> paigingRoom(PagingVO vo){
         vo.get
         return namedParameterJdbcTemplate.
-    }
+    }*/
     // RoomDTO LIST 반환해주기 위한 클래스
     private static final class roomMapper implements RowMapper<Room.Info> {
         @Override

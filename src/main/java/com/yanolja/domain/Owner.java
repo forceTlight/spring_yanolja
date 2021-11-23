@@ -11,6 +11,7 @@ public class Owner {
     public static class Info {
         private int ownerId;
         private String name;
+        private String nickName;
         private String email;
         private String password;
         private String phoneNumber;
@@ -20,6 +21,7 @@ public class Owner {
     @Data
     public static class RegisterReq{
         private String name;
+        private String nickName;
         private String email;
         private String password;
         private String phoneNumber;
@@ -45,14 +47,14 @@ public class Owner {
     // 닉네임 수정 REQUEST DTO
     @Data
     @NoArgsConstructor
-    public static class NameReq{
-        private String name;
+    public static class NickNameReq{
+        private String nickName;
     }
     // 닉네임 수정 RESPONSE DTO
     @Data
     @Builder
     public static class PatchReq{
         private int ownerId;
-        private String name;
+        private String nickName;
     }
 }

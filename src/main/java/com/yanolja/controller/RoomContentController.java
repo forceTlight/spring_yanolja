@@ -2,7 +2,7 @@ package com.yanolja.controller;
 
 import com.yanolja.configuration.DefaultResponse;
 import com.yanolja.configuration.ResponseMessage;
-import com.yanolja.configuration.Status;
+import com.yanolja.configuration.StatusCode;
 import com.yanolja.domain.RoomContent;
 import com.yanolja.service.RoomContentService;
 import io.swagger.annotations.ApiOperation;
@@ -25,10 +25,10 @@ public class RoomContentController {
     public DefaultResponse<String> roomContentCreate(@RequestBody RoomContent.RegisterReq roomContent){
         try {
             log.debug("roomContent = {}", roomContent.toString());
-            return new DefaultResponse<String>(Status.CREATED, ResponseMessage.ROOMCONTENT_REGISTER_OK);
+            return new DefaultResponse<String>(StatusCode.CREATED, ResponseMessage.ROOMCONTENT_REGISTER_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new DefaultResponse<String>(Status.DB_ERROR, ResponseMessage.ROOMCONTENT_REGISTER_ERROR);
+            return new DefaultResponse<String>(StatusCode.DB_ERROR, ResponseMessage.ROOMCONTENT_REGISTER_ERROR);
         }
     }
     @GetMapping(value="/find/{roomContentId}")
@@ -37,10 +37,10 @@ public class RoomContentController {
         try{
             log.debug("roomContent = {}", roomContentId);
             RoomContent.Info roomContent = roomContentService.findById(roomContentId);
-            return new DefaultResponse<RoomContent.Info>(Status.OK, ResponseMessage.ROOMCONTENT_FIND_OK);
+            return new DefaultResponse<RoomContent.Info>(StatusCode.OK, ResponseMessage.ROOMCONTENT_FIND_OK);
         }catch(Exception e){
             log.error(e.toString());
-            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.ROOMCONTENT_FIND_ERROR);
+            return new DefaultResponse<>(StatusCode.DB_ERROR, ResponseMessage.ROOMCONTENT_FIND_ERROR);
         }
     }
     @GetMapping(value="/load/{roomId}")
@@ -48,10 +48,10 @@ public class RoomContentController {
     public DefaultResponse<List<RoomContent.Info>> roomContentFindByRoomId(@PathVariable Integer roomId){
         try{
             List<RoomContent.Info> roomContentList = roomContentService.findByRoomId(roomId);
-            return new DefaultResponse<List<RoomContent.Info>>(Status.OK, ResponseMessage.ROOMCONTENT_FINDBYROOMID_OK, roomContentList);
+            return new DefaultResponse<List<RoomContent.Info>>(StatusCode.OK, ResponseMessage.ROOMCONTENT_FINDBYROOMID_OK, roomContentList);
         }catch(Exception e){
             log.error(e.toString());
-            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.ROOMCONTENT_FINDBYROOMID_ERROR);
+            return new DefaultResponse<>(StatusCode.DB_ERROR, ResponseMessage.ROOMCONTENT_FINDBYROOMID_ERROR);
         }
     }
     @PatchMapping(value="/update")
@@ -60,10 +60,10 @@ public class RoomContentController {
         try {
             log.debug("roomContent = {}", roomContent.toString());
             Integer updatedCnt = roomContentService.updateById(roomContent);
-            return new DefaultResponse<String>(Status.OK, ResponseMessage.ROOMCONTENT_UPDATE_OK);
+            return new DefaultResponse<String>(StatusCode.OK, ResponseMessage.ROOMCONTENT_UPDATE_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.ROOMCONTENT_UPDATE_ERROR);
+            return new DefaultResponse<>(StatusCode.DB_ERROR, ResponseMessage.ROOMCONTENT_UPDATE_ERROR);
         }
     }
     @PatchMapping(value="/delete/{roomContentId}")
@@ -72,10 +72,10 @@ public class RoomContentController {
         try {
             log.debug("roomContent id = {}", roomContentId);
             Integer deletedCnt = roomContentService.deleteById(roomContentId);
-            return new DefaultResponse<String>(Status.OK, ResponseMessage.ROOMCONTENT_DELETE_OK);
+            return new DefaultResponse<String>(StatusCode.OK, ResponseMessage.ROOMCONTENT_DELETE_OK);
         }catch(Exception e) {
             log.error(e.toString());
-            return new DefaultResponse<>(Status.DB_ERROR, ResponseMessage.ROOMCONTENT_DELETE_ERROR);
+            return new DefaultResponse<>(StatusCode.DB_ERROR, ResponseMessage.ROOMCONTENT_DELETE_ERROR);
         }
     }
 }

@@ -15,9 +15,10 @@ public class User {
 	@Data
 	@AllArgsConstructor
 	@NoArgsConstructor
-	public static class Info{
+	public static class Info {
 		private int userId;
 		private String name;
+		private String nickName;
 		private String profileImgUrl;
 		private String email;
 		private String password;
@@ -28,6 +29,7 @@ public class User {
 	@Data
 	public static class RegisterReq{
 		private String name;
+		private String nickName;
 		private String profileImgUrl;
 		private String email;
 		private String password;
@@ -56,14 +58,14 @@ public class User {
 	@Data
 	@NoArgsConstructor
 	public static class NameReq{
-		private String name;
+		private String nickName;
 	}
 	// 닉네임 수정 RESPONSE DTO
 	@Data
 	@Builder
 	public static class PatchReq{
 		private int userId;
-		private String name;
+		private String nickName;
 	}
 	/*private LocalDateTime insertTime;
 	private LocalDateTime updateTime;

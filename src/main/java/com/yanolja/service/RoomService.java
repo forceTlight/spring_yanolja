@@ -28,9 +28,4 @@ public class RoomService {
         log.debug("room Name = {}", name);
         return roomRepository.findByName(name);
     }
-    public int countRoom(){
-
-    }
-
-    public List<Room.Info> paigingRoom()
 }
