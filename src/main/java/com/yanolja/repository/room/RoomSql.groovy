@@ -16,6 +16,10 @@ class RoomSql {
     public static final String DELETE = """
 			UPDATE room SET deleteYN = 'Y' WHERE roomId = :roomId
             """;
+    // RoomId로 ownerId 가져오기
+    public static final String GET_OWNER_ID ="""
+        SELECT ownerId from room where roomId = :roomId
+    """;
 
     // 총 게시글 갯수 출력
     public static final String COUNT_ROOM ="""
@@ -27,4 +31,5 @@ class RoomSql {
         SELECT * from room where deleteYN = 'N' order by roomId DESC
         limit pageStart = :pageStart, perPageNum = :perPageNum 
         """;
+
 }

@@ -131,6 +131,7 @@ public class YanoljaApplication {
                 .append("roomContentId INTEGER not NULL AUTO_INCREMENT,")
                 .append("roomId INTEGER not NULL,")
                 .append("name VARCHAR(20) not NULL,")
+                .append("imgUrl text not NULL,")
                 .append("count INTEGER not NULL,")
                 .append("content VARCHAR(30),")
                 .append("deleteYN VARCHAR(1),")

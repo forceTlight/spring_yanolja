@@ -32,7 +32,6 @@ public class LodgeRepository {
                 .addValue("price", lodge.getPrice())
                 .addValue("deleteYN", "N");
         int affectedRows = namedParameterJdbcTemplate.update(LodgeSql.INSERT, parameterSource, keyHolder);
-        log.debug("{} inserted, new id = {}", affectedRows, keyHolder.getKeys());
         lodge.setLodgeId(keyHolder.getKey().intValue());
         return lodge;
     }
@@ -60,6 +59,13 @@ public class LodgeRepository {
     public Lodge.Info findByRoomContentId(Integer id){
         SqlParameterSource parameterSource = new MapSqlParameterSource("roomContentId", id);
         return namedParameterJdbcTemplate.queryForObject(LodgeSql.FINDBYROOMCONTENTID, parameterSource, new LodgeRepository.lodgeMapper());
+    }
+    // lodgeId로 roomContentId 반환
+    public int findRoomContentIdByLodgeId(Integer id){
+        SqlParameterSource parameterSource = new MapSqlParameterSource("lodgeId",id);
+        return namedParameterJdbcTemplate.queryForObject(LodgeSql.FIND_ROOMCONTENTID_BY_LODGEID,parameterSource, (rs, rowNum) -> {
+           return rs.getInt("roomContentId");
+        });
     }
 
     // queryForObject 수행시 Object 리턴해주기 위한 클래스

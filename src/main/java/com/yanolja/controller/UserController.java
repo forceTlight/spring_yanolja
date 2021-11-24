@@ -88,10 +88,10 @@ public class UserController {
 			// userId로 email 가져오기
 			String userEmail = userRepository.getEmailById(userId);
 			// jwt에서 email 추출
-			String jwtEmail = jwtAuthenticationProvider.getUserPk(request);
+			String jwtEmail = jwtAuthenticationProvider.getJwtEmail(request);
 			// jwt validation
 			if(!jwtEmail.equals(userEmail)){
-				throw new DefaultException(ResponseMessage.INVALID_JWT, StatusCode.JWT_ERROR);
+				throw new DefaultException(StatusCode.JWT_ERROR, ResponseMessage.INVALID_JWT);
 			}
 			// 같다면 유저 네임 변경
 			return new DefaultResponse<String>(StatusCode.OK, ResponseMessage.UPDATE_USER);

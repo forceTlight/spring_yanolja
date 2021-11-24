@@ -3,10 +3,14 @@ package com.yanolja.utils;
 import com.yanolja.configuration.DefaultException;
 import com.yanolja.configuration.ResponseMessage;
 import com.yanolja.configuration.StatusCode;
+import com.yanolja.repository.owner.OwnerRepository;
+import com.yanolja.repository.room.RoomRepository;
+import com.yanolja.service.RoomContentService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +20,12 @@ import java.util.Date;
 @Component
 @EnableAutoConfiguration
 public class JwtAuthenticationProvider {
-
+    @Autowired
+    RoomContentService roomContentService;
+    @Autowired
+    RoomRepository roomRepository;
+    @Autowired
+    OwnerRepository ownerRepository;
     private String secretKey = "secret";
 
     private long tokenValidTime = 1000L * 60 * 60;
@@ -35,17 +44,17 @@ public class JwtAuthenticationProvider {
     }
 
     // 토큰에서 회원 정보 추출
-    public String getUserPk(HttpServletRequest request) throws DefaultException {
+    public String getJwtEmail(HttpServletRequest request) throws DefaultException {
         String token = resolveToken(request);
         String email;
         // 토큰이 비었을 때 예외 처리
         if(token == null || token.length() == 0){
-            throw new DefaultException(ResponseMessage.EMPTY_JWT, StatusCode.JWT_ERROR);
+            throw new DefaultException(StatusCode.JWT_ERROR, ResponseMessage.EMPTY_JWT);
         }
         try{
             email = Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
         }catch(Exception e){
-            throw new DefaultException(ResponseMessage.INVALID_JWT, StatusCode.JWT_ERROR);
+            throw new DefaultException(StatusCode.JWT_ERROR, ResponseMessage.INVALID_JWT);
         }
         return email;
     }
@@ -67,6 +76,19 @@ public class JwtAuthenticationProvider {
             return !claims.getBody().getExpiration().before(new Date());
         } catch (Exception e) {
             return false;
+        }
+    }
+    // Owner jwt 토큰 체크 메서드
+    public void setOwnerJwtTokenCheck(int roomContentId, HttpServletRequest request) throws DefaultException {
+        int roomId = roomContentService.findRoomIdByRoomContentId(roomContentId);
+        int ownerId = roomRepository.getOwnerIdByRoomId(roomId);
+        // ownerId로 email 가져오기
+        String ownerEmail = ownerRepository.getEmailById(ownerId);
+        // jwt에서 email 추출
+        String jwtEmail = getJwtEmail(request);
+        // jwt validation
+        if(!jwtEmail.equals(ownerEmail) || jwtEmail == null){
+            throw new DefaultException(StatusCode.JWT_ERROR, ResponseMessage.INVALID_JWT);
         }
     }
 }

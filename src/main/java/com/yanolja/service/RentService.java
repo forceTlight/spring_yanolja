@@ -29,4 +29,7 @@ public class RentService {
     public Rent.Info findByRoomContentId(Integer id){
         return rentRepository.findByRoomContentId(id);
     }
+    public int findRoomContentIdByRentId(Integer id){
+        return rentRepository.findRoomContentIdByRentId(id);
+    }
 }

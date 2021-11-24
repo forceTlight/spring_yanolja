@@ -28,10 +28,10 @@ public class Lodge {
     }
     // 숙소 정보 수정 REQUEST DTO
     @Data
-    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static class PatchReq{
         private int lodgeId;
-        private int roomContentId;
         private String checkIn;
         private String checkOut;
         private int price;

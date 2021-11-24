@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class DefaultException extends Exception{
-    private String message;
     private int statusCode;
+    private String message;
 }

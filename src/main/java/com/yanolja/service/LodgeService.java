@@ -15,18 +15,19 @@ public class LodgeService {
         return lodgeRepository.insert(lodge);
     }
     public Integer updateById(Lodge.PatchReq lodge) {
-        log.debug("lodge Id = {}", lodge.getLodgeId());
         return lodgeRepository.updateById(lodge);
     }
     public Integer deleteById(Integer id) {
-        log.debug("lodge id = {}", id);
         return lodgeRepository.deleteById(id);
     }
     public Lodge.Info findById(Integer id){
-        log.debug("lodge Id = {}", id);
+
         return lodgeRepository.findById(id);
     }
     public Lodge.Info findByRoomContentId(Integer roomContentId){
         return lodgeRepository.findByRoomContentId(roomContentId);
+    }
+    public int findRoomContentIdByLodgeId(Integer lodgeId){
+        return lodgeRepository.findRoomContentIdByLodgeId(lodgeId);
     }
 }

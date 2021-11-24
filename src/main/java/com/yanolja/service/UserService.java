@@ -25,7 +25,7 @@ public class UserService{
 		String email = user.getEmail();
 		User.Info realUser = userRepository.findByEmail(email);
 		if(realUser != null){
-			throw new DefaultException(ResponseMessage.EXIST_USER, StatusCode.REGISTER_FAIL);
+			throw new DefaultException(StatusCode.REGISTER_FAIL,ResponseMessage.EXIST_USER);
 		}
 		// 암호화(AES128) key : user_secret_key
 		try { // 암호화 예외처리
@@ -33,7 +33,7 @@ public class UserService{
 			String pwd = aes128.encrypt(user.getPassword());
 			user.setPassword(pwd);
 		}catch(Exception encryptError){
-			throw new DefaultException(ResponseMessage.ENCRYPT_ERROR, StatusCode.ENCRYPT_ERROR);
+			throw new DefaultException(StatusCode.ENCRYPT_ERROR, ResponseMessage.ENCRYPT_ERROR);
 		}
 		return userRepository.insert(user);
 	}
@@ -48,12 +48,12 @@ public class UserService{
 		try{
 			realUser = userRepository.findByEmail(email);
 		}catch (Exception e){
-			throw new DefaultException(ResponseMessage.LOGIN_FAIL, StatusCode.LOGIN_FAIL);
+			throw new DefaultException(StatusCode.LOGIN_FAIL, ResponseMessage.LOGIN_FAIL);
 		}
 		// !! 예외처리
 		// 아이디가 존재하지 않을 때
 		if(realUser == null){
-			throw new DefaultException(ResponseMessage.NOT_FOUND_USER, StatusCode.LOGIN_FAIL);
+			throw new DefaultException(StatusCode.LOGIN_FAIL, ResponseMessage.NOT_FOUND_USER);
 		}
 		// 복호화(AES128) <key : neo>
 		String pwd;
@@ -61,7 +61,7 @@ public class UserService{
 			AES128 aes128 = new AES128(user_secret_key);
 			pwd = aes128.decrypt(realUser.getPassword());
 		}catch(Exception decryptError){
-			throw new DefaultException(ResponseMessage.DECRYPT_ERROR, StatusCode.DECRYPT_ERROR);
+			throw new DefaultException(StatusCode.DECRYPT_ERROR, ResponseMessage.DECRYPT_ERROR);
 		}
 		// 비밀번호 맞는지 비교
 		if (user.getPassword().equals(pwd)) {
@@ -69,13 +69,13 @@ public class UserService{
 		} else {
 			// !! 예외처리
 			// 비밀번호가 틀릴 때
-			throw new DefaultException(ResponseMessage.NOT_MATCHING_PASSWORD, StatusCode.LOGIN_FAIL);
+			throw new DefaultException(StatusCode.LOGIN_FAIL, ResponseMessage.NOT_MATCHING_PASSWORD);
 		}
 	}
 	public Integer updateNickName(User.PatchReq user) throws DefaultException{
 		int result = userRepository.updateById(user);
 		if(result == 0){ // 0이면 에러가 발생
-			throw new DefaultException(ResponseMessage.DB_ERROR, StatusCode.DB_ERROR);
+			throw new DefaultException(StatusCode.DB_ERROR, ResponseMessage.DB_ERROR);
 		}else{
 			return result;
 		}
@@ -83,7 +83,7 @@ public class UserService{
 	public Integer deleteById(Integer id) throws DefaultException{
 		int result = userRepository.deleteById(id);
 		if(result == 0){
-			throw new DefaultException(ResponseMessage.DB_ERROR, StatusCode.DB_ERROR);
+			throw new DefaultException(StatusCode.DB_ERROR, ResponseMessage.DB_ERROR);
 		}else{
 			return result;
 		}

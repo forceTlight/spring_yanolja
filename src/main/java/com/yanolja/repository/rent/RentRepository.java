@@ -62,9 +62,17 @@ public class RentRepository {
     // roomContentId로 RentDTO 반환
     public Rent.Info findByRoomContentId(Integer id) {
         SqlParameterSource parameterSource = new MapSqlParameterSource("roomContentId", id);
-        return namedParameterJdbcTemplate.queryForObject(RentSql.SELECT, parameterSource,
+        return namedParameterJdbcTemplate.queryForObject(RentSql.FINDBYROOMCONTENTID, parameterSource,
                 new RentRepository.rentMapper());
     }
+    // rentId로 roomContentId 반환
+    public int findRoomContentIdByRentId(Integer id){
+        SqlParameterSource parameterSource = new MapSqlParameterSource("rentId", id);
+        return namedParameterJdbcTemplate.queryForObject(RentSql.FIND_ROOMCONTENTID_BY_RENTID, parameterSource, (rs, rowNum) -> {
+           return rs.getInt("roomContentId");
+        });
+    }
+
     // queryForObject 수행시 Object 리턴해주기 위한 클래스
     private static final class rentMapper implements RowMapper<Rent.Info> {
         @Override
@@ -76,7 +84,7 @@ public class RentRepository {
             rent.setCloseTime(rs.getString("closeTime"));
             rent.setMaxTime(rs.getInt("maxTime"));
             rent.setPrice(rs.getInt("price"));
-            rent.setCount(rs.getInt("ImgUrl"));
+            rent.setCount(rs.getInt("count"));
             return rent;
         }
     }

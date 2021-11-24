@@ -28,7 +28,7 @@ public class OwnerService {
             String pwd = aes128.encrypt(owner.getPassword());
             owner.setPassword(pwd);
         }catch(Exception encryptError){
-            throw new DefaultException(ResponseMessage.ENCRYPT_ERROR, StatusCode.ENCRYPT_ERROR);
+            throw new DefaultException(StatusCode.ENCRYPT_ERROR, ResponseMessage.ENCRYPT_ERROR);
         }
         return ownerRepository.insert(owner);
     }
@@ -38,7 +38,7 @@ public class OwnerService {
         Owner.Info realOwner = ownerRepository.findByEmail(email);
         //  아이디 이미 존재하면 예외 처리
         if(realOwner == null){
-            throw new DefaultException(ResponseMessage.NOT_FOUND_USER, StatusCode.LOGIN_FAIL);
+            throw new DefaultException(StatusCode.LOGIN_FAIL, ResponseMessage.NOT_FOUND_USER);
         }
         // 복호화(AES128) key : neo
         String pwd;
@@ -46,20 +46,20 @@ public class OwnerService {
             AES128 aes128 = new AES128(owner_secret_key);
             pwd = aes128.decrypt(realOwner.getPassword());
         }catch(Exception decryptError){
-            throw new DefaultException(ResponseMessage.DECRYPT_ERROR, StatusCode.DECRYPT_ERROR);
+            throw new DefaultException(StatusCode.DECRYPT_ERROR, ResponseMessage.DECRYPT_ERROR);
         }
         // 비밀번호 맞는지 비교
         if (owner.getPassword().equals(pwd)) {
             return Owner.LoginRes.builder().ownerId(realOwner.getOwnerId()).build();
         } else {
-            throw new DefaultException(ResponseMessage.LOGIN_FAIL, StatusCode.LOGIN_FAIL);
+            throw new DefaultException(StatusCode.LOGIN_FAIL, ResponseMessage.LOGIN_FAIL);
         }
     }
     public Integer updateNickName(Owner.PatchReq owner) throws DefaultException{
         log.debug("owner Id = {}", owner.getOwnerId());
         int result = ownerRepository.updateById(owner);
         if(result == 0){ // 0이면 에러가 발생
-            throw new DefaultException(ResponseMessage.DB_ERROR, StatusCode.DB_ERROR);
+            throw new DefaultException(StatusCode.DB_ERROR, ResponseMessage.DB_ERROR);
         }else{
             return result;
         }
@@ -68,7 +68,7 @@ public class OwnerService {
         log.debug("owner id = {}", id);
         int result = ownerRepository.deleteById(id);
         if(result == 0){
-            throw new DefaultException(ResponseMessage.DB_ERROR, StatusCode.DB_ERROR);
+            throw new DefaultException(StatusCode.DB_ERROR, ResponseMessage.DB_ERROR);
         }else{
             return result;
         }

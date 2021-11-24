@@ -66,6 +66,19 @@ public class RoomRepository {
         SqlParameterSource parameterSource = new MapSqlParameterSource("name", "%"+name+"%");
         return namedParameterJdbcTemplate.query(RoomSql.FIND_BY_NAME,parameterSource, new roomMapper());
     }
+    // roomId로 ownerId 가져오기
+    public int getOwnerIdByRoomId(int roomId){
+        SqlParameterSource parameterSource = new MapSqlParameterSource("roomId", roomId);
+        return namedParameterJdbcTemplate.query(RoomSql.GET_OWNER_ID, parameterSource, rs ->{
+            int ownerId = 0;
+            if (rs.next()) {
+                ownerId = rs.getInt(roomId);
+            }
+            
+            return ownerId;
+        });
+    }
+
     /* // 페이징 (임시 주석처리)
     public List<Room.Info> paigingRoom(int pageStart, int perPageNum){
         SqlParameterSource parameterSource = new MapSqlParameterSource("pageStart", pageStart)

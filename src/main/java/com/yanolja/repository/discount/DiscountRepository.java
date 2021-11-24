@@ -22,9 +22,8 @@ public class DiscountRepository {
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
     }
 
-
     // Discount 레코드 추가
-    public Discount insert(Discount discount) {
+    public Discount.RegisterReq insert(Discount.RegisterReq discount) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
         SqlParameterSource parameterSource = new MapSqlParameterSource("lodgeId", discount.getLodgeId())
                 .addValue("rentId", discount.getRentId())
@@ -33,12 +32,11 @@ public class DiscountRepository {
                 .addValue("firstComeYN", discount.getFirstComeYN())
                 .addValue("deleteYN", "N");
         int affectedRows = namedParameterJdbcTemplate.update(DiscountSql.INSERT, parameterSource, keyHolder);
-        log.debug("{} inserted, new id = {}", affectedRows, keyHolder.getKeys());
         discount.setDiscountId(keyHolder.getKey().intValue());
         return discount;
     }
     // discountId를 사용해 레코드 업데이트
-    public Integer updateById(Discount discount) {
+    public Integer updateById(Discount.PatchReq discount) {
         String qry = DiscountSql.UPDATE;
         SqlParameterSource parameterSource = new MapSqlParameterSource("discountId", discount.getDiscountId())
                 .addValue("discountNum", discount.getDiscountNum())
@@ -52,23 +50,22 @@ public class DiscountRepository {
         return namedParameterJdbcTemplate.update(DiscountSql.DELETE, parameterSource);
     }
     // discountId로 DiscountDTO 반환
-    public Discount findById(Integer id) {
+    public Discount.Info findById(Integer id) {
         SqlParameterSource parameterSource = new MapSqlParameterSource("discountId", id);
         return namedParameterJdbcTemplate.queryForObject(DiscountSql.SELECT, parameterSource,
                 new DiscountRepository.discountMapper());
     }
     // queryForObject 수행시 Object 리턴해주기 위한 클래스
-    private static final class discountMapper implements RowMapper<Discount> {
+    private static final class discountMapper implements RowMapper<Discount.Info> {
         @Override
-        public Discount mapRow(ResultSet rs, int rowNum) throws SQLException {
-            Discount discount = new Discount();
+        public Discount.Info mapRow(ResultSet rs, int rowNum) throws SQLException {
+            Discount.Info discount = new Discount.Info();
             discount.setDiscountId(rs.getInt("discountId"));
             discount.setLodgeId(rs.getInt("lodgeId"));
             discount.setRentId(rs.getInt("rentId"));
             discount.setDiscountNum(rs.getInt("discountNum"));
             discount.setCount(rs.getInt("count"));
             discount.setFirstComeYN(rs.getString("firstComeYN"));
-            discount.setDeleteYN(rs.getString("deleteYN"));
             return discount;
         }
     }

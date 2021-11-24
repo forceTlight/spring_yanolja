@@ -64,6 +64,14 @@ public class RoomContentRepository {
         return namedParameterJdbcTemplate.queryForObject(RoomContentSql.SELECT, parameterSource,
                 new roomContentMapper());
     }
+    // roomContentId로 roomId 반환
+    public int findRoomIdByRoomContentId(Integer id){
+        SqlParameterSource parameterSource = new MapSqlParameterSource("roomContentId",id);
+        return namedParameterJdbcTemplate.queryForObject(RoomContentSql.FIND_ROOMID, parameterSource, (rs, rowNum) -> {
+               return rs.getInt("roomId");
+        });
+    }
+
     // queryForObject 수행시 Object 리턴해주기 위한 클래스
     private static final class roomContentMapper implements RowMapper<RoomContent.Info> {
         @Override

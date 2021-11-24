@@ -53,7 +53,20 @@ public class OwnerRepository {
         return namedParameterJdbcTemplate.queryForObject(OwnerSql.SELECT, parameterSource,
                 new OwnerRepository.OwnerMapper());
     }
-
+    // UserId로 Email 전달
+    public String getEmailById(Integer Id){
+        SqlParameterSource parameterSource = new MapSqlParameterSource("ownerId", Id);
+        try {
+            return namedParameterJdbcTemplate.queryForObject(OwnerSql.GET_EMAIL, parameterSource,
+                    (rs, rowNum) -> {
+                        String email = rs.getString("email");
+                        return email;
+                    });
+        }catch(EmptyResultDataAccessException e){
+            return null;
+        }
+    }
+    // email로 Owner.Info 리턴
     public Owner.Info findByEmail(String email) {
         SqlParameterSource parameterSource = new MapSqlParameterSource("email", email);
         try {

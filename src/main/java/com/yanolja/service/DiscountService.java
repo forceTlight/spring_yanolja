@@ -11,19 +11,16 @@ import org.springframework.stereotype.Service;
 public class DiscountService {
     @Autowired
     private DiscountRepository discountRepository;
-    public Discount insert(Discount discount) {
+    public Discount.RegisterReq insert(Discount.RegisterReq discount) {
         return discountRepository.insert(discount);
     }
-    public Integer updateById(Discount discount) {
-        log.debug("discount Id = {}", discount.getDiscountId());
+    public Integer updateById(Discount.PatchReq discount) {
         return discountRepository.updateById(discount);
     }
     public Integer deleteById(Integer id) {
-        log.debug("discount id = {}", id);
         return discountRepository.deleteById(id);
     }
-    public Discount findById(Integer id){
-        log.debug("discount Id = {}", id);
+    public Discount.Info findById(Integer id){
         return discountRepository.findById(id);
     }
 }

@@ -17,7 +17,7 @@ public class ResponseMessage {
     public static final String ENCRYPT_ERROR = "암호화 하는 도중 오류가 발생했습니다.";
     public static final String DECRYPT_ERROR = "복호화 하는 도중 오류가 발생했습니다.";
     /*
-     Room Message
+         Room Message
     */
     public static final String ROOM_REGISTER_OK = "숙소가 성공적으로 등록되었습니다.";
     public static final String ROOM_FIND_OK = "숙소 검색 성공";
@@ -29,7 +29,7 @@ public class ResponseMessage {
     public static final String ROOM_UPDATE_ERROR = "숙소 업데이트를 하는 도중 오류가 발생했습니다.";
     public static final String ROOM_DELETE_ERROR = "숙소를 삭제하는 도중 오류가 발생했습니다.";
     /*
-     RoomContent Message
+         RoomContent Message
      */
     public static final String ROOMCONTENT_REGISTER_OK = "객실이 성공적으로 등록되었습니다.";
     public static final String ROOMCONTENT_FIND_OK = "객실 검색 성공";
@@ -38,12 +38,12 @@ public class ResponseMessage {
     public static final String ROOMCONTENT_DELETE_OK = "객실 삭제 성공";
 
     public static final String ROOMCONTENT_REGISTER_ERROR = "객실 등록을 하는 도중 문제가 발생했습니다.";
-    public static final String ROOMCONTENT_FIND_ERROR = "객실 검색 성공";
+    public static final String ROOMCONTENT_FIND_ERROR = "객실 검색 실패";
     public static final String ROOMCONTENT_FINDBYROOMID_ERROR = "숙소에 대한 객실 불러오는데 오류가 발생했습니다.";
     public static final String ROOMCONTENT_UPDATE_ERROR = "객실 업데이트를 하는 도중 오류가 발생했습니다.";
     public static final String ROOMCONTENT_DELETE_ERROR = "객실 삭제를 하는 도중 오류가 발생했습니다.";
     /*
-     Lodge Message
+        Lodge Message
      */
     public static final String LODGE_REGISTER_OK = "숙박정보가 성공적으로 등록되었습니다.";
     public static final String LODGE_FIND_OK = "숙박정보 검색 성공";
@@ -57,7 +57,7 @@ public class ResponseMessage {
     public static final String LODGE_UPDATE_ERROR = "숙박정보 업데이트를 하는 도중 오류가 발생했습니다.";
     public static final String LODGE_DELETE_ERROR = "숙박정보 삭제를 하는 도중 오류가 발생했습니다.";
     /*
-    Rent Message
+        Rent Message
      */
     public static final String RENT_REGISTER_OK = "대실정보가 성공적으로 등록되었습니다.";
     public static final String RENT_FIND_OK = "대실정보 검색 성공";
@@ -70,6 +70,21 @@ public class ResponseMessage {
     public static final String RENT_FINDBYROOMCONTENTID_ERROR = "객실에 대한 대실정보를 불러오는데 오류가 발생했습니다.";
     public static final String RENT_UPDATE_ERROR = "대실정보 업데이트를 하는 도중 오류가 발생했습니다.";
     public static final String RENT_DELETE_ERROR = "대실정보 삭제를 하는 도중 오류가 발생했습니다.";
+    /*
+        Discount Message
+     */
+    public static final String DISCOUNT_REGISTER_OK = "할인 정보가 성공적으로 등록되었습니다.";
+    public static final String DISCOUNT_FIND_OK = "할인 정보 검색 성공";
+    public static final String DISCOUNT_FINDBYROOMCONTENTID_OK = "객실에 대한 숙박정보 불러오기 성공";
+    public static final String DISCOUNT_UPDATE_OK = "대실정보 업데이트 성공";
+    public static final String DISCOUNT_DELETE_OK = "대실정보 삭제 성공";
+
+    public static final String DISCOUNT_REGISTER_ERROR = "대실정보 등록을 하는 도중 문제가 발생했습니다.";
+    public static final String DISCOUNT_FIND_ERROR = "대실정보 검색 성공";
+    public static final String DISCOUNT_FINDBYROOMCONTENTID_ERROR = "객실에 대한 대실정보를 불러오는데 오류가 발생했습니다.";
+    public static final String DISCOUNT_UPDATE_ERROR = "대실정보 업데이트를 하는 도중 오류가 발생했습니다.";
+    public static final String DISCOUNT_DELETE_ERROR = "대실정보 삭제를 하는 도중 오류가 발생했습니다.";
+
     /*
         DataBase Message
      */

@@ -1,5 +1,8 @@
 package com.yanolja.service;
 
+import com.yanolja.configuration.DefaultException;
+import com.yanolja.configuration.ResponseMessage;
+import com.yanolja.configuration.StatusCode;
 import com.yanolja.domain.RoomContent;
 import com.yanolja.repository.roomContent.RoomContentRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -17,18 +20,26 @@ public class RoomContentService {
         return roomContentRepository.insert(roomContent);
     }
     public Integer updateById(RoomContent.PatchReq roomContent) {
-        log.debug("roomContent Id = {}", roomContent.getRoomContentId());
         return roomContentRepository.updateById(roomContent);
     }
     public Integer deleteById(Integer id) {
-        log.debug("roomContent id = {}", id);
         return roomContentRepository.deleteById(id);
     }
-    public RoomContent.Info findById(Integer id){
-        log.debug("roomContent Id = {}", id);
-        return roomContentRepository.findById(id);
+    public RoomContent.Info findById(Integer id) throws DefaultException {
+        RoomContent.Info roomContent = roomContentRepository.findById(id);
+        if(roomContent == null)
+            throw new DefaultException(StatusCode.ROOMCONTENT_SEARCH_FAIL, ResponseMessage.ROOMCONTENT_FIND_ERROR);
+        return roomContent;
     }
-    public List<RoomContent.Info> findByRoomId(Integer id){
-        return roomContentRepository.findByRoomId(id);
+    public List<RoomContent.Info> findByRoomId(Integer id) throws DefaultException {
+        List<RoomContent.Info> roomContentList = roomContentRepository.findByRoomId(id);
+        if(roomContentList.size() == 0)
+            throw new DefaultException(StatusCode.ROOMCONTENT_SEARCH_FAIL, ResponseMessage.ROOMCONTENT_FIND_ERROR);
+        return roomContentList;
+    }
+
+    // roomContentId로 roomId 반환
+    public int findRoomIdByRoomContentId(Integer id){
+        return roomContentRepository.findRoomIdByRoomContentId(id);
     }
 }

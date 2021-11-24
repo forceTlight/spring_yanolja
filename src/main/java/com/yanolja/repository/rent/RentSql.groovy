@@ -19,4 +19,7 @@ class RentSql {
     public static final String FINDBYROOMCONTENTID = """
 			SELECT * from rent where roomContentId = :roomContentId
             """;
+    public static final String FIND_ROOMCONTENTID_BY_RENTID ="""
+            SELECT roomContentId from rent where rentId = :rentId
+            """;
 }

@@ -18,4 +18,7 @@ class OwnerSql{
     public static final String FIND_BY_EMAIL = """
 			SELECT * from owner where email = :email
 """
+    public static final String GET_EMAIL ="""
+			SELECT email from owner where ownerId = :ownerId
+"""
 }
